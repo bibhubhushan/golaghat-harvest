@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 
 type Product = {
   id: string;
@@ -24,7 +24,7 @@ const products: Product[] = [
     price: 1399,
     unit: "10 kg crate",
     image: "/images/kaji-nemu.jpg",
-    note: "Bright aroma, generous juice—graded and packed into a 10 kg Khumtai farm crate.",
+    note: "Bright aroma, generous juice—graded and packed into a 10 kg Golaghat farm crate.",
     tag: "10 kg minimum",
     minimum: "Minimum order: one 10 kg crate",
   },
@@ -143,6 +143,40 @@ export default function Home() {
   const cartCount = Object.values(cart).reduce((sum, quantity) => sum + quantity, 0);
   const subtotal = useMemo(() => cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0), [cartItems]);
 
+  useEffect(() => {
+    let frame = 0;
+    const updateProgress = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const distance = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = distance > 0 ? (window.scrollY / distance) * 100 : 0;
+        document.documentElement.style.setProperty("--scroll-progress", `${progress}%`);
+      });
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px" });
+
+    document.querySelectorAll("[data-reveal]").forEach((element) => observer.observe(element));
+    document.documentElement.classList.add("motion-ready");
+    updateProgress();
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+
+    return () => {
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+      window.removeEventListener("scroll", updateProgress);
+      window.removeEventListener("resize", updateProgress);
+    };
+  }, [filter]);
+
   function addToCart(id: string) {
     setCart((current) => ({ ...current, [id]: (current[id] || 0) + 1 }));
     setCartOpen(true);
@@ -169,12 +203,13 @@ export default function Home() {
 
   return (
     <main>
-      <div className="announcement">Grown in Khumtai <span>•</span> Delivered from Golaghat <span>•</span> Kaji Nemu, first</div>
+      <div className="scroll-progress" aria-hidden="true" />
+      <div className="announcement">Fresh produce <span>•</span> Assamese pantry <span>•</span> Living craft</div>
 
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="Khumtai Market home">
-          <span className="brand-mark">K</span>
-          <span><strong>Khumtai Market</strong><small>Golaghat · Assam</small></span>
+        <a className="brand" href="#top" aria-label="Golaghat Harvest home">
+          <span className="brand-mark">G</span>
+          <span><strong>Golaghat Harvest</strong><small>Golaghat · Assam</small></span>
         </a>
         <button className="menu-button" aria-label="Toggle navigation" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? "Close" : "Menu"}</button>
         <nav className={menuOpen ? "nav-open" : ""} aria-label="Main navigation">
@@ -183,50 +218,54 @@ export default function Home() {
           <a href="#plan" onClick={closeMenu}>How it works</a>
           <a href="#contact" onClick={closeMenu}>Contact</a>
         </nav>
-        <button className="cart-button" onClick={() => setCartOpen(true)} aria-label={`Open cart with ${cartCount} items`}>
+        <button className={`cart-button ${cartCount ? "has-items" : ""}`} onClick={() => setCartOpen(true)} aria-label={`Open cart with ${cartCount} items`}>
           Cart <span>{String(cartCount).padStart(2, "0")}</span>
         </button>
       </header>
 
       <section className="hero" id="top">
         <div className="hero-copy">
-          <p className="eyebrow">খুমটাইৰ কাজি নেমু · Khumtai, Golaghat</p>
-          <h1>Kaji Nemu.<br /><em>Bright by nature.</em><br />Grown in Khumtai.</h1>
-          <p className="hero-text">Fresh, fragrant Kaji Nemu from Khumtai, packed in 10 kg crates for homes, restaurants, retailers and hospitality.</p>
+          <p className="eyebrow">গোলাঘাটৰ বজাৰ · Golaghat, Assam</p>
+          <h1><span>The taste of</span><span><em>Golaghat.</em></span><span>All in one place.</span></h1>
+          <p className="hero-text">Fresh vegetables, fragrant roots, bold pantry goods and Assamese craft—thoughtfully gathered for homes, kitchens and retailers.</p>
           <div className="hero-actions">
-            <a className="button primary" href="#shop">Order a 10 kg crate <span>↗</span></a>
-            <a className="text-link" href="#shop">Explore Assamese goods <span>↓</span></a>
+            <a className="button primary" href="#shop">Shop the harvest <span>↗</span></a>
+            <a className="text-link" href="#story">Meet the market <span>↓</span></a>
           </div>
           <div className="hero-proof">
             <span className="proof-number">10</span>
-            <span>kg minimum<br />fresh farm crate</span>
+            <span>distinct goods<br />one Assamese market</span>
           </div>
         </div>
         <div className="hero-visual">
-          <img src="/images/kaji-nemu.jpg" alt="Green lemons growing on a leafy branch" />
-          <div className="image-label"><span>Signature product</span> Kaji Nemu<br />Khumtai, Golaghat</div>
-          <div className="origin-stamp"><strong>Grown in Assam</strong><span>Origin · Aroma · Identity</span></div>
+          <div className="hero-collage">
+            <figure className="collage-nemu"><img src="/images/kaji-nemu.jpg" alt="Fresh Kaji Nemu growing on a branch" /><figcaption>Kaji Nemu</figcaption></figure>
+            <figure className="collage-dhekia"><img src="/images/dhekia-fresh-2.jpg" alt="Fresh Dhekia Xaak" /><figcaption>Dhekia Xaak</figcaption></figure>
+            <figure className="collage-chilli"><img src="/images/bhut-jolokia.jpg" alt="Fresh Bhut Jolokia chillies" /><figcaption>Bhut Jolokia</figcaption></figure>
+            <figure className="collage-craft"><img src="/images/handloom.jpg" alt="Handwoven Assamese textile" /><figcaption>Handwoven craft</figcaption></figure>
+          </div>
+          <div className="origin-stamp"><strong>From Assam</strong><span>Field · Pantry · Craft</span></div>
         </div>
       </section>
 
       <section className="trust-strip" aria-label="Store promises">
-        <span>10 kg lemon minimum</span><i>✦</i><span>Clearly graded</span><i>✦</i><span>Carefully packed</span><i>✦</i><span>Directly connected</span>
+        <span>Fresh vegetables</span><i>✦</i><span>Pantry originals</span><i>✦</i><span>Living craft</span><i>✦</i><span>Visible origin</span>
       </section>
 
-      <section className="nemu-focus" aria-label="Kaji Nemu ordering highlights">
-        <div className="nemu-intro"><p className="eyebrow">Kaji Nemu, first</p><h2>The fruit that<br /><em>starts a market.</em></h2></div>
-        <div className="nemu-promise"><p>Khumtai Market begins with one clear promise: make it easy to discover, order and trust the produce at the heart of this place. Kaji Nemu leads; the wider Assamese collection grows around it.</p><div className="nemu-facts"><div><span>01</span><strong>10 kg</strong><small>Your first farm crate</small></div><div><span>02</span><strong>Khumtai</strong><small>Source-led by design</small></div><div><span>03</span><strong>Flexible</strong><small>One crate or repeat supply</small></div></div></div>
+      <section className="nemu-focus" aria-label="Golaghat Harvest collection highlights" data-reveal>
+        <div className="nemu-intro"><p className="eyebrow">One place · many makers</p><h2>A wider view<br /><em>of Assam.</em></h2></div>
+        <div className="nemu-promise"><p>Golaghat Harvest brings everyday vegetables, distinctive ingredients and meaningful craft into one clear marketplace. Every category matters; every product carries its own place, use and story.</p><div className="nemu-facts"><div data-reveal><span>01</span><strong>Fresh</strong><small>Greens, chillies and roots</small></div><div data-reveal><span>02</span><strong>Pantry</strong><small>Tea, honey and pickles</small></div><div data-reveal><span>03</span><strong>Craft</strong><small>Made by Assamese hands</small></div></div></div>
       </section>
 
       <section className="shop section" id="shop">
-        <div className="section-heading">
-          <div><p className="eyebrow">10 goods · one Assamese market</p><h2>Start with Nemu.<br />Stay for Assam.</h2></div>
-          <p>Order Khumtai&apos;s 10 kg Kaji Nemu crate, then discover fresh greens, bold chillies, roots, pantry staples and living craft from across Assam.</p>
+        <div className="section-heading" data-reveal>
+          <div><p className="eyebrow">10 goods · one Assamese market</p><h2>From field to home.<br />From Assam to you.</h2></div>
+          <p>Discover fresh greens, Kaji Nemu, bold chillies, fragrant roots, tea, honey, pickles and living craft—each presented with equal care.</p>
         </div>
         <div className="filters" role="group" aria-label="Filter products">
           {categories.map((category) => <button key={category} className={filter === category ? "active" : ""} onClick={() => setFilter(category)}>{category}</button>)}
         </div>
-        <div className="product-grid">
+        <div className="product-grid" key={filter}>
           {visibleProducts.map((product, index) => (
             <article className="product-card" key={product.id}>
               <div className="product-image">
@@ -249,19 +288,19 @@ export default function Home() {
         <p className="price-note">Kaji Nemu starts at one 10 kg crate. Prices are indicative; final availability, grade, delivery area and shipping charge will be confirmed before payment.</p>
       </section>
 
-      <section className="story" id="story">
+      <section className="story" id="story" data-reveal>
         <div className="story-image"><img src="/images/assam-tea.jpg" alt="Hands plucking fresh green tea leaves" /><span>Strong produce. Clear origin. Better reach.</span></div>
         <div className="story-copy">
-          <p className="eyebrow light">Why Khumtai Market</p>
+          <p className="eyebrow light">Why Golaghat Harvest</p>
           <h2>Great produce deserves<br /><em>a better route.</em></h2>
-          <p>Growers already know how to raise remarkable produce. Khumtai Market adds what buyers need: clear standards, confident presentation and dependable fulfilment.</p>
+          <p>Growers already know how to raise remarkable produce. Golaghat Harvest adds what buyers need: clear standards, confident presentation and dependable fulfilment.</p>
           <blockquote>“See where it comes from. Know what you are buying. Order with confidence.”</blockquote>
           <a href="#plan" className="button lime">Follow the journey <span>↘</span></a>
         </div>
       </section>
 
       <section className="plan section" id="plan">
-        <div className="plan-title">
+        <div className="plan-title" data-reveal>
           <p className="eyebrow">From harvest to doorstep</p>
           <h2>A simple route<br />to a wider market.</h2>
           <p>Start with real supply and real orders. Build trust through consistent grading, thoughtful packing and dependable delivery.</p>
@@ -270,10 +309,10 @@ export default function Home() {
           {[
             ["01", "Source", "Work with growers and map what is ready, when."],
             ["02", "Grade", "Make size, freshness and quality easy to understand."],
-            ["03", "Pack", "Protect the produce and make Khumtai recognisable."],
+            ["03", "Pack", "Protect the produce and make Golaghat recognisable."],
             ["04", "Deliver", "Serve homes, kitchens, retailers and bulk buyers."],
             ["05", "Improve", "Learn from repeat orders and producer feedback."],
-          ].map(([number, title, copy]) => <div className="flow-step" key={number}><span>{number}</span><h3>{title}</h3><p>{copy}</p></div>)}
+          ].map(([number, title, copy]) => <div className="flow-step" key={number} data-reveal><span>{number}</span><h3>{title}</h3><p>{copy}</p></div>)}
         </div>
         <div className="pilot-plan">
           <div className="pilot-lead"><span>The first 90 days</span><h3>Start focused.<br />Earn trust.<br />Grow with demand.</h3></div>
@@ -285,7 +324,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="outcomes">
+      <section className="outcomes" data-reveal>
         <div className="outcomes-copy"><p className="eyebrow light">What good looks like</p><h2>More reach.<br />Less waste.<br />Clear value.</h2><p>Judge the market by what can be seen and measured: better buying, better fulfilment and stronger repeat demand.</p></div>
         <div className="outcome-grid">
           <div><span>01</span><h3>Visible origin</h3><p>Make the grower and place part of the product story.</p></div>
@@ -295,32 +334,32 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="buyer-banner" id="contact">
-        <p className="eyebrow">For families & groups · retailers · hotels · institutions</p>
-        <h2>Need 10 kg or more?</h2>
-        <p>Start with one crate or tell us your weekly requirement. We will confirm freshness, availability and delivery before payment.</p>
-        <button className="button dark" onClick={() => setCartOpen(true)}>Request your crate <span>↗</span></button>
+      <section className="buyer-banner" id="contact" data-reveal>
+        <p className="eyebrow">For homes · retailers · restaurants · hospitality</p>
+        <h2>Buying for home or business?</h2>
+        <p>Choose one product or tell us your weekly requirement. We will confirm freshness, availability and delivery before payment.</p>
+        <button className="button dark" onClick={() => setCartOpen(true)}>Start an order <span>↗</span></button>
       </section>
 
       <footer>
-        <div className="footer-brand"><span className="brand-mark">K</span><h2>Khumtai Market</h2><p>অসমৰ সোৱাদ, আপোনাৰ দুৱাৰত।<br />An ecommerce platform from Golaghat.</p></div>
+        <div className="footer-brand"><span className="brand-mark">G</span><h2>Golaghat Harvest</h2><p>অসমৰ সোৱাদ, আপোনাৰ দুৱাৰত।<br />An ecommerce platform from Golaghat.</p></div>
         <div><h4>Explore</h4><a href="#shop">Shop</a><a href="#story">Our story</a><a href="#plan">How it works</a></div>
         <div><h4>Our promise</h4><p>Visible origin<br />Clear quality<br />Careful packing<br />Direct connection</p></div>
-        <div><h4>Orders</h4><p>Now taking enquiries<br />Khumtai · Golaghat</p></div>
-        <p className="copyright">© 2026 Khumtai Market. Prices and availability are confirmed before every order.</p>
+        <div><h4>Orders</h4><p>Now taking enquiries<br />Golaghat · Assam</p></div>
+        <p className="copyright">© 2026 Golaghat Harvest. Prices and availability are confirmed before every order.</p>
       </footer>
 
       {cartOpen && <div className="drawer-backdrop" onMouseDown={(event) => { if (event.target === event.currentTarget) setCartOpen(false); }}>
         <aside className="cart-drawer" aria-label="Shopping cart" aria-modal="true" role="dialog">
           <div className="drawer-head"><div><p className="eyebrow">Your request</p><h2>Market basket</h2></div><button onClick={() => setCartOpen(false)} aria-label="Close cart">×</button></div>
-          {sent ? <div className="success-message"><span>✓</span><h3>Your request is ready.</h3><p>In the live service, the Khumtai team will confirm availability and delivery before any payment is taken.</p><button className="button primary" onClick={() => { setSent(false); setCartOpen(false); }}>Continue shopping</button></div> : cartItems.length ? <>
+          {sent ? <div className="success-message"><span>✓</span><h3>Your request is ready.</h3><p>The Golaghat Harvest team will confirm availability and delivery before any payment is taken.</p><button className="button primary" onClick={() => { setSent(false); setCartOpen(false); }}>Continue shopping</button></div> : cartItems.length ? <>
             <div className="cart-items">{cartItems.map((item) => <div className="cart-item" key={item.id}><img src={item.image} alt="" /><div><strong>{item.name}</strong><span>₹{item.price} · {item.unit}</span><div className="quantity"><button onClick={() => changeQuantity(item.id, -1)} aria-label={`Remove one ${item.name}`}>−</button><b>{item.quantity}</b><button onClick={() => changeQuantity(item.id, 1)} aria-label={`Add one ${item.name}`}>+</button></div></div><strong>₹{item.price * item.quantity}</strong></div>)}</div>
             <div className="subtotal"><span>Indicative subtotal</span><strong>₹{subtotal}</strong></div>
             <form onSubmit={submitOrder} className="order-form"><label>Name<input required name="name" placeholder="Your name" /></label><label>Phone<input required name="phone" type="tel" placeholder="10-digit mobile number" pattern="[0-9 +()-]{10,}" /></label><label>Delivery location<input required name="location" placeholder="Town / city / PIN" /></label><button className="button primary" type="submit">Confirm my request <span>↗</span></button><small>We will confirm availability, delivery and payment details by phone.</small></form>
           </> : <div className="empty-cart"><span>○</span><h3>Your basket is ready for something good.</h3><p>Start with a 10 kg Kaji Nemu crate or explore the Assamese collection.</p><button className="button primary" onClick={() => { setCartOpen(false); document.getElementById("shop")?.scrollIntoView({ behavior: "smooth" }); }}>Explore the collection</button></div>}
         </aside>
       </div>}
-      {!cartOpen && <div className="mobile-order-bar"><div><small>Khumtai Kaji Nemu</small><strong>10 kg · ₹1,399</strong></div><button onClick={() => addToCart("kaji-nemu")}>Add crate <span>+</span></button></div>}
+      {!cartOpen && <div className="mobile-order-bar"><div><small>Golaghat Harvest</small><strong>10 Assamese goods</strong></div><button onClick={() => document.getElementById("shop")?.scrollIntoView({ behavior: "smooth" })}>Shop now <span>↗</span></button></div>}
     </main>
   );
 }

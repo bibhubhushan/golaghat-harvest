@@ -11,13 +11,13 @@ export async function generateMetadata(): Promise<Metadata> {
   const host = incoming.get("x-forwarded-host") || incoming.get("host") || "localhost:3000";
   const protocol = incoming.get("x-forwarded-proto") || (host.includes("localhost") ? "http" : "https");
   const origin = `${protocol}://${host}`;
-  const title = "Khumtai Market — Kaji Nemu from Golaghat";
-  const description = "An ecommerce platform from Golaghat, led by Khumtai's Kaji Nemu and distinctive Assamese goods.";
+  const title = "Golaghat Harvest — Assamese Produce, Pantry and Craft";
+  const description = "An ecommerce platform from Golaghat for fresh vegetables, distinctive pantry goods and Assamese craft.";
 
   return {
     title,
     description,
-    openGraph: { title, description, type: "website", images: [{ url: `${origin}/og.png`, width: 1200, height: 630, alt: "Khumtai Market — Fresh from Assam" }] },
+    openGraph: { title, description, type: "website", images: [{ url: `${origin}/og.png`, width: 1200, height: 630, alt: "Golaghat Harvest — Fresh from Assam" }] },
     twitter: { card: "summary_large_image", title, description, images: [`${origin}/og.png`] },
   };
 }
