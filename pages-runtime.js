@@ -20,6 +20,7 @@
   const updateProgress = () => {
     const distance = document.documentElement.scrollHeight - innerHeight;
     document.documentElement.style.setProperty("--scroll-progress", `${distance > 0 ? (scrollY / distance) * 100 : 0}%`);
+    document.documentElement.classList.toggle("has-scrolled", scrollY > 260);
   };
   addEventListener("scroll", updateProgress, { passive: true });
   addEventListener("resize", updateProgress);
@@ -50,7 +51,7 @@
   $$(".filters button").forEach((button) => button.addEventListener("click", () => {
     $$(".filters button").forEach((item) => item.classList.remove("active"));
     button.classList.add("active");
-    const category = button.textContent.trim();
+    const category = button.dataset.category;
     products.forEach((product) => {
       product.card.hidden = category !== "All" && product.card.dataset.category !== category;
     });
