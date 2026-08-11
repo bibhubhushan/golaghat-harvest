@@ -31,9 +31,10 @@ function rewriteForPages(content) {
 let html = rewriteForPages(await response.text());
 const staticMetadata = `
   <title>Assam Harvest — Assamese Produce, Pantry and Craft</title>
-  <meta name="color-scheme" content="only light" />
-  <meta name="supported-color-schemes" content="light" />
-  <meta name="theme-color" content="#fffdf7" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="supported-color-schemes" content="light dark" />
+  <meta name="theme-color" content="#fffdf7" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#101e18" media="(prefers-color-scheme: dark)" />
   <meta name="description" content="A bilingual marketplace for Assamese produce, pantry goods and handmade craft—connecting growers and makers with buyers." />
   <meta property="og:title" content="Assam Harvest — Food, Pantry and Craft from Assam" />
   <meta property="og:description" content="Fresh produce, pantry essentials and living craft—presented with clear origin and equal respect." />
