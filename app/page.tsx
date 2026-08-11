@@ -24,7 +24,7 @@ const products: Product[] = [
     price: 1399,
     unit: "10 kg crate",
     image: "/images/kaji-nemu.jpg",
-    note: "Fragrant, juicy Assam lemons graded and packed for families, kitchens, shops and hospitality buyers.",
+    note: "Bright aroma, generous juice—graded and packed into a 10 kg Khumtai farm crate.",
     tag: "10 kg minimum",
     minimum: "Minimum order: one 10 kg crate",
   },
@@ -36,7 +36,7 @@ const products: Product[] = [
     price: 179,
     unit: "1 kg harvest pack",
     image: "/images/dhekia-fresh-2.jpg",
-    note: "Tender seasonal fiddlehead greens, cleaned and bundled for traditional Assamese cooking.",
+    note: "Tender fiddlehead greens, gathered at their seasonal best and packed for quick cooking.",
     tag: "Seasonal green",
   },
   {
@@ -47,7 +47,7 @@ const products: Product[] = [
     price: 249,
     unit: "250 g pack",
     image: "/images/bhut-jolokia.jpg",
-    note: "A fiercely hot chilli for experienced kitchens, packed in a small, clearly marked batch.",
+    note: "Assam's legendary heat, packed for cooks who know exactly what they are doing.",
     tag: "Handle with care",
   },
   {
@@ -58,7 +58,7 @@ const products: Product[] = [
     price: 149,
     unit: "1 kg harvest pack",
     image: "/images/lai-xaak.jpg",
-    note: "Peppery mustard greens harvested for curries, stir-fries and comforting bowls of rice.",
+    note: "Fresh mustard greens with a clean peppery bite—made for simple, comforting food.",
     tag: "Field fresh",
   },
   {
@@ -69,7 +69,7 @@ const products: Product[] = [
     price: 189,
     unit: "2 blossom pack",
     image: "/images/banana-flower.jpg",
-    note: "Fresh banana blossom for fibre-rich Assamese preparations and inventive modern kitchens.",
+    note: "Fresh banana blossom with a tender texture and a deep place in Assamese cooking.",
     tag: "Village kitchen",
   },
   {
@@ -80,7 +80,7 @@ const products: Product[] = [
     price: 349,
     unit: "250 g pack",
     image: "/images/assam-tea.jpg",
-    note: "A bold everyday tea, packed close to origin for a fresher cup.",
+    note: "Full-bodied Assam tea from small growers, packed close to origin for a brighter cup.",
     tag: "Garden fresh",
   },
   {
@@ -91,7 +91,7 @@ const products: Product[] = [
     price: 449,
     unit: "500 g jar",
     image: "/images/honey.jpg",
-    note: "Small-batch honey with natural seasonal variation in colour and flavour.",
+    note: "Small-batch blossom honey; colour and flavour shift naturally with the season.",
     tag: "Small batch",
   },
   {
@@ -102,7 +102,7 @@ const products: Product[] = [
     price: 399,
     unit: "2 kg mixed pack",
     image: "/images/ginger-turmeric.jpg",
-    note: "Earthy, aromatic roots for everyday cooking, pickling, tea blends and food makers.",
+    note: "Fresh roots with the colour, aroma and warmth every working kitchen needs.",
     tag: "Root cellar",
   },
   {
@@ -113,7 +113,7 @@ const products: Product[] = [
     price: 329,
     unit: "400 g jar",
     image: "/images/bamboo-shoot.jpg",
-    note: "A sharp, savoury small-batch pickle inspired by Northeast India's bamboo shoot traditions.",
+    note: "A sharp, savoury bamboo shoot pickle made for rice, meat and everyday meals.",
     tag: "Fermented flavour",
   },
   {
@@ -124,7 +124,7 @@ const products: Product[] = [
     price: 799,
     unit: "1 piece",
     image: "/images/handloom.jpg",
-    note: "A presentation-worthy textile made through Assam's living handloom tradition.",
+    note: "A handwoven Assamese essential—made to be used, gifted and kept.",
     tag: "Made by hand",
   },
 ];
@@ -169,12 +169,12 @@ export default function Home() {
 
   return (
     <main>
-      <div className="announcement">An ecommerce platform from Golaghat <span>•</span> Khumtai&apos;s Kaji Nemu, first</div>
+      <div className="announcement">Grown in Khumtai <span>•</span> Delivered from Golaghat <span>•</span> Kaji Nemu, first</div>
 
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Khumtai Market home">
           <span className="brand-mark">K</span>
-          <span><strong>Khumtai</strong><small>Market · Golaghat</small></span>
+          <span><strong>Khumtai Market</strong><small>Golaghat · Assam</small></span>
         </a>
         <button className="menu-button" aria-label="Toggle navigation" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? "Close" : "Menu"}</button>
         <nav className={menuOpen ? "nav-open" : ""} aria-label="Main navigation">
@@ -190,16 +190,16 @@ export default function Home() {
 
       <section className="hero" id="top">
         <div className="hero-copy">
-          <p className="eyebrow">খুমটাইৰ কাজি নেমু · 10 kg farm crates</p>
-          <h1>Kaji Nemu.<br /><em>Fresh from Khumtai.</em><br />Ready to travel.</h1>
-          <p className="hero-text">The signature lemon of Khumtai leads this ecommerce platform from Golaghat—graded into 10 kg farm crates for families, shops, restaurants and hospitality buyers.</p>
+          <p className="eyebrow">খুমটাইৰ কাজি নেমু · Khumtai, Golaghat</p>
+          <h1>Kaji Nemu.<br /><em>Bright by nature.</em><br />Grown in Khumtai.</h1>
+          <p className="hero-text">Fresh, fragrant Kaji Nemu from Khumtai, packed in 10 kg crates for homes, restaurants, retailers and hospitality.</p>
           <div className="hero-actions">
-            <a className="button primary" href="#shop">Enter the Khumtai market <span>↗</span></a>
-            <a className="text-link" href="#plan">See how it works <span>↓</span></a>
+            <a className="button primary" href="#shop">Order a 10 kg crate <span>↗</span></a>
+            <a className="text-link" href="#shop">Explore Assamese goods <span>↓</span></a>
           </div>
           <div className="hero-proof">
             <span className="proof-number">10</span>
-            <span>kg minimum<br />one farm crate</span>
+            <span>kg minimum<br />fresh farm crate</span>
           </div>
         </div>
         <div className="hero-visual">
@@ -214,14 +214,14 @@ export default function Home() {
       </section>
 
       <section className="nemu-focus" aria-label="Kaji Nemu ordering highlights">
-        <div className="nemu-intro"><p className="eyebrow">The product that leads the market</p><h2>One remarkable<br /><em>lemon.</em></h2></div>
-        <div className="nemu-promise"><p>Kaji Nemu is not buried inside a general catalogue. It is the first product, the strongest visual identity and the starting point for every Khumtai Market buyer relationship.</p><div className="nemu-facts"><div><span>01</span><strong>10 kg</strong><small>Minimum farm crate</small></div><div><span>02</span><strong>Fresh</strong><small>Availability confirmed before payment</small></div><div><span>03</span><strong>Flexible</strong><small>One crate to recurring bulk orders</small></div></div></div>
+        <div className="nemu-intro"><p className="eyebrow">Kaji Nemu, first</p><h2>The fruit that<br /><em>starts a market.</em></h2></div>
+        <div className="nemu-promise"><p>Khumtai Market begins with one clear promise: make it easy to discover, order and trust the produce at the heart of this place. Kaji Nemu leads; the wider Assamese collection grows around it.</p><div className="nemu-facts"><div><span>01</span><strong>10 kg</strong><small>Your first farm crate</small></div><div><span>02</span><strong>Khumtai</strong><small>Source-led by design</small></div><div><span>03</span><strong>Flexible</strong><small>One crate or repeat supply</small></div></div></div>
       </section>
 
       <section className="shop section" id="shop">
         <div className="section-heading">
-          <div><p className="eyebrow">Kaji Nemu first · 9 more Assamese goods</p><h2>The lemon leads.<br />Assam follows.</h2></div>
-          <p>Begin with Khumtai&apos;s 10 kg Kaji Nemu crate, then discover fresh greens, powerful chillies, roots, pantry staples and living craft from across Assam.</p>
+          <div><p className="eyebrow">10 goods · one Assamese market</p><h2>Start with Nemu.<br />Stay for Assam.</h2></div>
+          <p>Order Khumtai&apos;s 10 kg Kaji Nemu crate, then discover fresh greens, bold chillies, roots, pantry staples and living craft from across Assam.</p>
         </div>
         <div className="filters" role="group" aria-label="Filter products">
           {categories.map((category) => <button key={category} className={filter === category ? "active" : ""} onClick={() => setFilter(category)}>{category}</button>)}
@@ -250,56 +250,56 @@ export default function Home() {
       </section>
 
       <section className="story" id="story">
-        <div className="story-image"><img src="/images/assam-tea.jpg" alt="Hands plucking fresh green tea leaves" /><span>Small growers. One strong market face.</span></div>
+        <div className="story-image"><img src="/images/assam-tea.jpg" alt="Hands plucking fresh green tea leaves" /><span>Strong produce. Clear origin. Better reach.</span></div>
         <div className="story-copy">
           <p className="eyebrow light">Why Khumtai Market</p>
-          <h2>Not another middleman.<br /><em>A shared market layer.</em></h2>
-          <p>Local producers already know how to grow and make exceptional things. The missing layer is often consistent grading, presentation, digital discovery and a dependable route to the buyer.</p>
-          <blockquote>“One place where origin is visible, quality is clear, and every order can be traced back to the local value chain.”</blockquote>
-          <a href="#plan" className="button lime">See how the model works <span>↘</span></a>
+          <h2>Great produce deserves<br /><em>a better route.</em></h2>
+          <p>Growers already know how to raise remarkable produce. Khumtai Market adds what buyers need: clear standards, confident presentation and dependable fulfilment.</p>
+          <blockquote>“See where it comes from. Know what you are buying. Order with confidence.”</blockquote>
+          <a href="#plan" className="button lime">Follow the journey <span>↘</span></a>
         </div>
       </section>
 
       <section className="plan section" id="plan">
         <div className="plan-title">
-          <p className="eyebrow">The Khumtai growth plan</p>
-          <h2>Build the market<br />around the harvest.</h2>
-          <p>This website is the customer-facing layer of a practical local commerce system. The supply network will begin as a focused pilot and grow from verified demand.</p>
+          <p className="eyebrow">From harvest to doorstep</p>
+          <h2>A simple route<br />to a wider market.</h2>
+          <p>Start with real supply and real orders. Build trust through consistent grading, thoughtful packing and dependable delivery.</p>
         </div>
         <div className="system-flow">
           {[
-            ["01", "Collect", "Onboard producers and map seasonal supply."],
-            ["02", "Grade", "Create simple, visible quality standards."],
-            ["03", "Pack", "Use a shared Khumtai identity and practical packaging."],
-            ["04", "Sell", "Reach households, institutions and wholesale buyers."],
-            ["05", "Learn", "Track orders, repeat demand and producer feedback."],
+            ["01", "Source", "Work with growers and map what is ready, when."],
+            ["02", "Grade", "Make size, freshness and quality easy to understand."],
+            ["03", "Pack", "Protect the produce and make Khumtai recognisable."],
+            ["04", "Deliver", "Serve homes, kitchens, retailers and bulk buyers."],
+            ["05", "Improve", "Learn from repeat orders and producer feedback."],
           ].map(([number, title, copy]) => <div className="flow-step" key={number}><span>{number}</span><h3>{title}</h3><p>{copy}</p></div>)}
         </div>
         <div className="pilot-plan">
-          <div className="pilot-lead"><span>90-day launch plan</span><h3>Start narrow.<br />Prove demand.<br />Scale what works.</h3></div>
+          <div className="pilot-lead"><span>The first 90 days</span><h3>Start focused.<br />Earn trust.<br />Grow with demand.</h3></div>
           <ol>
-            <li><span>Weeks 1–3</span><strong>Verify</strong><p>Confirm producer group, product grades, packing method and responsible operator.</p></li>
-            <li><span>Weeks 4–6</span><strong>Launch</strong><p>Open a limited delivery area with the 10 kg Kaji Nemu crate as the lead product.</p></li>
-            <li><span>Weeks 7–12</span><strong>Measure</strong><p>Review fulfilment, repeat orders, wastage, buyer feedback and producer economics.</p></li>
+            <li><span>Weeks 1–3</span><strong>Prepare</strong><p>Confirm growers, product grades, packing and the team responsible for each order.</p></li>
+            <li><span>Weeks 4–6</span><strong>Launch</strong><p>Begin with a limited delivery area and the 10 kg Kaji Nemu crate.</p></li>
+            <li><span>Weeks 7–12</span><strong>Improve</strong><p>Review delivery, repeat orders, avoidable loss and buyer feedback.</p></li>
           </ol>
         </div>
       </section>
 
       <section className="outcomes">
-        <div className="outcomes-copy"><p className="eyebrow light">What success should look like</p><h2>A better route<br />from village<br />to value.</h2><p>Measure the pilot by evidence—not slogans. These are the outcomes the system should be designed to test.</p></div>
+        <div className="outcomes-copy"><p className="eyebrow light">What good looks like</p><h2>More reach.<br />Less waste.<br />Clear value.</h2><p>Judge the market by what can be seen and measured: better buying, better fulfilment and stronger repeat demand.</p></div>
         <div className="outcome-grid">
-          <div><span>01</span><h3>Producer visibility</h3><p>Make origin, maker and growing region part of the product—not invisible background.</p></div>
-          <div><span>02</span><h3>Lower avoidable loss</h3><p>Match harvest windows with pre-orders, grading and clearer demand signals.</p></div>
-          <div><span>03</span><h3>Market confidence</h3><p>Build repeat buying through consistent quality, packaging and communication.</p></div>
-          <div><span>04</span><h3>Local capability</h3><p>Create practical roles in aggregation, packing, catalogue work and fulfilment.</p></div>
+          <div><span>01</span><h3>Visible origin</h3><p>Make the grower and place part of the product story.</p></div>
+          <div><span>02</span><h3>Smarter demand</h3><p>Match harvest windows with orders and clearer buying signals.</p></div>
+          <div><span>03</span><h3>Buyer confidence</h3><p>Earn repeat orders through consistent quality and communication.</p></div>
+          <div><span>04</span><h3>Local capability</h3><p>Build practical skills in grading, packing, cataloguing and delivery.</p></div>
         </div>
       </section>
 
       <section className="buyer-banner" id="contact">
         <p className="eyebrow">For families & groups · retailers · hotels · institutions</p>
         <h2>Need 10 kg or more?</h2>
-        <p>Start with one lemon crate or tell us your larger weekly requirement. The request helps us plan harvest, packing and delivery.</p>
-        <button className="button dark" onClick={() => setCartOpen(true)}>Start a buyer request <span>↗</span></button>
+        <p>Start with one crate or tell us your weekly requirement. We will confirm freshness, availability and delivery before payment.</p>
+        <button className="button dark" onClick={() => setCartOpen(true)}>Request your crate <span>↗</span></button>
       </section>
 
       <footer>
@@ -313,13 +313,14 @@ export default function Home() {
       {cartOpen && <div className="drawer-backdrop" onMouseDown={(event) => { if (event.target === event.currentTarget) setCartOpen(false); }}>
         <aside className="cart-drawer" aria-label="Shopping cart" aria-modal="true" role="dialog">
           <div className="drawer-head"><div><p className="eyebrow">Your request</p><h2>Market basket</h2></div><button onClick={() => setCartOpen(false)} aria-label="Close cart">×</button></div>
-          {sent ? <div className="success-message"><span>✓</span><h3>Request captured for the demo.</h3><p>In the live pilot, this step will send the order to the Khumtai fulfilment team for availability and delivery confirmation.</p><button className="button primary" onClick={() => { setSent(false); setCartOpen(false); }}>Continue exploring</button></div> : cartItems.length ? <>
+          {sent ? <div className="success-message"><span>✓</span><h3>Your request is ready.</h3><p>In the live service, the Khumtai team will confirm availability and delivery before any payment is taken.</p><button className="button primary" onClick={() => { setSent(false); setCartOpen(false); }}>Continue shopping</button></div> : cartItems.length ? <>
             <div className="cart-items">{cartItems.map((item) => <div className="cart-item" key={item.id}><img src={item.image} alt="" /><div><strong>{item.name}</strong><span>₹{item.price} · {item.unit}</span><div className="quantity"><button onClick={() => changeQuantity(item.id, -1)} aria-label={`Remove one ${item.name}`}>−</button><b>{item.quantity}</b><button onClick={() => changeQuantity(item.id, 1)} aria-label={`Add one ${item.name}`}>+</button></div></div><strong>₹{item.price * item.quantity}</strong></div>)}</div>
             <div className="subtotal"><span>Indicative subtotal</span><strong>₹{subtotal}</strong></div>
-            <form onSubmit={submitOrder} className="order-form"><label>Name<input required name="name" placeholder="Your name" /></label><label>Phone<input required name="phone" type="tel" placeholder="10-digit mobile number" pattern="[0-9 +()-]{10,}" /></label><label>Delivery location<input required name="location" placeholder="Town / city / PIN" /></label><button className="button primary" type="submit">Request availability <span>↗</span></button><small>No payment is taken in this presentation prototype.</small></form>
-          </> : <div className="empty-cart"><span>○</span><h3>Your basket is empty.</h3><p>Add a product to create a sample order request.</p><button className="button primary" onClick={() => { setCartOpen(false); document.getElementById("shop")?.scrollIntoView({ behavior: "smooth" }); }}>Explore the collection</button></div>}
+            <form onSubmit={submitOrder} className="order-form"><label>Name<input required name="name" placeholder="Your name" /></label><label>Phone<input required name="phone" type="tel" placeholder="10-digit mobile number" pattern="[0-9 +()-]{10,}" /></label><label>Delivery location<input required name="location" placeholder="Town / city / PIN" /></label><button className="button primary" type="submit">Confirm my request <span>↗</span></button><small>No payment is taken in this presentation prototype.</small></form>
+          </> : <div className="empty-cart"><span>○</span><h3>Your basket is ready for something good.</h3><p>Start with a 10 kg Kaji Nemu crate or explore the Assamese collection.</p><button className="button primary" onClick={() => { setCartOpen(false); document.getElementById("shop")?.scrollIntoView({ behavior: "smooth" }); }}>Explore the collection</button></div>}
         </aside>
       </div>}
+      {!cartOpen && <div className="mobile-order-bar"><div><small>Khumtai Kaji Nemu</small><strong>10 kg · ₹1,399</strong></div><button onClick={() => addToCart("kaji-nemu")}>Add crate <span>+</span></button></div>}
     </main>
   );
 }
