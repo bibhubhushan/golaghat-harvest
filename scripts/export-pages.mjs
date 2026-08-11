@@ -31,6 +31,9 @@ function rewriteForPages(content) {
 let html = rewriteForPages(await response.text());
 const staticMetadata = `
   <title>Assam Harvest — Assamese Produce, Pantry and Craft</title>
+  <meta name="color-scheme" content="only light" />
+  <meta name="supported-color-schemes" content="light" />
+  <meta name="theme-color" content="#fffdf7" />
   <meta name="description" content="A bilingual marketplace for Assamese produce, pantry goods and handmade craft—connecting growers and makers with buyers." />
   <meta property="og:title" content="Assam Harvest — Food, Pantry and Craft from Assam" />
   <meta property="og:description" content="Fresh produce, pantry essentials and living craft—presented with clear origin and equal respect." />
@@ -42,6 +45,7 @@ const staticMetadata = `
 html = html
   .replace(/<script(?:\s[^>]*)?>[\s\S]*?<\/script>/gi, "")
   .replace(/<link[^>]+rel="modulepreload"[^>]*>/gi, "")
+  .replace(/<meta[^>]+name="(?:color-scheme|supported-color-schemes|theme-color)"[^>]*>/gi, "")
   .replace("<head>", `<head>${staticMetadata}`)
   .replace(
     /<\/main>[\s\S]*?<\/body>/i,

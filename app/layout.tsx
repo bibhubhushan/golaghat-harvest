@@ -24,5 +24,12 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body className={`${display.variable} ${sans.variable} ${Assamese.variable}`}>{children}</body></html>;
+  return <html lang="en">
+    <head>
+      <meta name="color-scheme" content="only light" />
+      <meta name="supported-color-schemes" content="light" />
+      <meta name="theme-color" content="#fffdf7" />
+    </head>
+    <body className={`${display.variable} ${sans.variable} ${Assamese.variable}`}>{children}</body>
+  </html>;
 }

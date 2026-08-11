@@ -30,6 +30,7 @@ test("server-renders the complete Assam Harvest marketplace", async () => {
 
   const html = await response.text();
   assert.match(html, /Assam Harvest — Assamese Produce, Pantry and Craft/);
+  assert.match(html, /name="color-scheme" content="only light"/);
   assert.match(html, /Fresh from/);
   assert.match(html, /অসমৰ বজাৰ/);
   assert.match(html, /খাদ্যৰ ভাষা/);
@@ -52,6 +53,8 @@ test("includes a GitHub Pages deployment with subpath-safe assets", async () => 
   assert.match(workflow, /pages: write/);
   assert.match(exporter, /\/\_next\//);
   assert.match(exporter, /\.nojekyll/);
+  assert.match(exporter, /name="color-scheme" content="only light"/);
+  assert.match(css, /color-scheme: only light/);
   assert.doesNotMatch(page, /src="\/images\//);
   assert.doesNotMatch(page, /image: "\/images\//);
   assert.match(css, /prefers-reduced-motion: reduce/);
