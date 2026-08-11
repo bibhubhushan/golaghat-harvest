@@ -11,8 +11,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const host = incoming.get("x-forwarded-host") || incoming.get("host") || "localhost:3000";
   const protocol = incoming.get("x-forwarded-proto") || (host.includes("localhost") ? "http" : "https");
   const origin = `${protocol}://${host}`;
-  const title = "Khumtai Market — Fresh from Assam";
-  const description = "A digital market for Kaji Nemu and distinctive Assamese goods from Khumtai, Golaghat.";
+  const title = "Khumtai Market — Kaji Nemu from Golaghat";
+  const description = "An ecommerce platform from Golaghat, led by Khumtai's Kaji Nemu and distinctive Assamese goods.";
 
   return {
     title,

@@ -35,7 +35,7 @@ const products: Product[] = [
     category: "Fresh",
     price: 179,
     unit: "1 kg harvest pack",
-    image: "/images/dhekia.jpg",
+    image: "/images/dhekia-fresh-2.jpg",
     note: "Tender seasonal fiddlehead greens, cleaned and bundled for traditional Assamese cooking.",
     tag: "Seasonal green",
   },
@@ -169,7 +169,7 @@ export default function Home() {
 
   return (
     <main>
-      <div className="announcement">A digital market from Khumtai, Golaghat <span>•</span> Pilot storefront</div>
+      <div className="announcement">An ecommerce platform from Golaghat <span>•</span> Khumtai&apos;s Kaji Nemu, first</div>
 
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Khumtai Market home">
@@ -190,21 +190,21 @@ export default function Home() {
 
       <section className="hero" id="top">
         <div className="hero-copy">
-          <p className="eyebrow">খুমটাইৰ পৰা বিশ্বলৈ · From Khumtai to the world</p>
-          <h1>Fresh from<br />Assam.<br /><em>Ready for the world.</em></h1>
-          <p className="hero-text">A direct market for Khumtai&apos;s Kaji Nemu—available from a 10 kg farm crate—and Assam&apos;s most distinctive goods, built to help local products travel farther.</p>
+          <p className="eyebrow">খুমটাইৰ কাজি নেমু · 10 kg farm crates</p>
+          <h1>Kaji Nemu.<br /><em>Fresh from Khumtai.</em><br />Ready to travel.</h1>
+          <p className="hero-text">The signature lemon of Khumtai leads this ecommerce platform from Golaghat—graded into 10 kg farm crates for families, shops, restaurants and hospitality buyers.</p>
           <div className="hero-actions">
             <a className="button primary" href="#shop">Enter the Khumtai market <span>↗</span></a>
             <a className="text-link" href="#plan">See how it works <span>↓</span></a>
           </div>
           <div className="hero-proof">
-            <span className="proof-number">01</span>
-            <span>Fresh · fragrant<br />distinctly Assamese</span>
+            <span className="proof-number">10</span>
+            <span>kg minimum<br />one farm crate</span>
           </div>
         </div>
         <div className="hero-visual">
           <img src="/images/kaji-nemu.jpg" alt="Green lemons growing on a leafy branch" />
-          <div className="image-label"><span>01</span> Kaji Nemu<br />The taste of Assam</div>
+          <div className="image-label"><span>Signature product</span> Kaji Nemu<br />Khumtai, Golaghat</div>
           <div className="origin-stamp"><strong>Grown in Assam</strong><span>Origin · Aroma · Identity</span></div>
         </div>
       </section>
@@ -213,10 +213,15 @@ export default function Home() {
         <span>10 kg lemon minimum</span><i>✦</i><span>Clearly graded</span><i>✦</i><span>Carefully packed</span><i>✦</i><span>Directly connected</span>
       </section>
 
+      <section className="nemu-focus" aria-label="Kaji Nemu ordering highlights">
+        <div className="nemu-intro"><p className="eyebrow">The product that leads the market</p><h2>One remarkable<br /><em>lemon.</em></h2></div>
+        <div className="nemu-promise"><p>Kaji Nemu is not buried inside a general catalogue. It is the first product, the strongest visual identity and the starting point for every Khumtai Market buyer relationship.</p><div className="nemu-facts"><div><span>01</span><strong>10 kg</strong><small>Minimum farm crate</small></div><div><span>02</span><strong>Fresh</strong><small>Availability confirmed before payment</small></div><div><span>03</span><strong>Flexible</strong><small>One crate to recurring bulk orders</small></div></div></div>
+      </section>
+
       <section className="shop section" id="shop">
         <div className="section-heading">
-          <div><p className="eyebrow">The Khumtai collection · 10 goods</p><h2>A living<br />Assamese market.</h2></div>
-          <p>Fresh greens, powerful chillies, roots, pantry staples and living craft—presented together under one distinctive Khumtai market identity.</p>
+          <div><p className="eyebrow">Kaji Nemu first · 9 more Assamese goods</p><h2>The lemon leads.<br />Assam follows.</h2></div>
+          <p>Begin with Khumtai&apos;s 10 kg Kaji Nemu crate, then discover fresh greens, powerful chillies, roots, pantry staples and living craft from across Assam.</p>
         </div>
         <div className="filters" role="group" aria-label="Filter products">
           {categories.map((category) => <button key={category} className={filter === category ? "active" : ""} onClick={() => setFilter(category)}>{category}</button>)}
@@ -298,7 +303,7 @@ export default function Home() {
       </section>
 
       <footer>
-        <div className="footer-brand"><span className="brand-mark">K</span><h2>Khumtai Market</h2><p>অসমৰ সোৱাদ, আপোনাৰ দুৱাৰত।<br />A digital market concept from Khumtai, Golaghat.</p></div>
+        <div className="footer-brand"><span className="brand-mark">K</span><h2>Khumtai Market</h2><p>অসমৰ সোৱাদ, আপোনাৰ দুৱাৰত।<br />An ecommerce platform from Golaghat.</p></div>
         <div><h4>Explore</h4><a href="#shop">Shop</a><a href="#story">Our story</a><a href="#plan">How it works</a></div>
         <div><h4>Our promise</h4><p>Visible origin<br />Clear quality<br />Careful packing<br />Direct connection</p></div>
         <div><h4>Status</h4><p>Presentation prototype<br />11 August 2026</p></div>
