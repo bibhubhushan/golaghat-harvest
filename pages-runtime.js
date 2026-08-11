@@ -80,7 +80,7 @@
 
     let body;
     if (orderSent) {
-      body = `<div class="success-message"><span>✓</span><h3>Your request is ready.</h3><p>The Golaghat Harvest team will confirm availability and delivery before any payment is taken.</p><button class="button primary" data-action="continue">Continue shopping</button></div>`;
+      body = `<div class="success-message"><span>✓</span><h3>Your request is ready.</h3><p>The Assam Harvest team will confirm availability and delivery before any payment is taken.</p><button class="button primary" data-action="continue">Continue shopping</button></div>`;
     } else if (!items.length) {
       body = `<div class="empty-cart"><span>○</span><h3>Your basket is ready for something good.</h3><p>Explore fresh produce, pantry goods and Assamese craft.</p><button class="button primary" data-action="explore">Explore the collection</button></div>`;
     } else {
