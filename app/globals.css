@@ -60,14 +60,25 @@ nav a:hover::after { width: 100%; }
 .trust-strip { min-height: 66px; display: flex; justify-content: space-around; align-items: center; gap: 20px; padding: 16px 4vw; background: var(--lime); font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
 .trust-strip i { font-style: normal; font-size: 13px; }
 .section { padding: 130px 6vw; }
+.shop { background-image: radial-gradient(rgba(23,55,43,.08) .7px, transparent .7px); background-size: 11px 11px; }
 .section-heading { display: grid; grid-template-columns: 1.1fr .8fr; gap: 12vw; align-items: end; margin-bottom: 70px; }
 .section-heading h2, .plan-title h2 { margin: 0; font-size: clamp(58px, 6vw, 92px); line-height: .84; }
 .section-heading > p { line-height: 1.7; max-width: 510px; }
 .filters { display: flex; gap: 8px; border-bottom: 1px solid var(--line); padding-bottom: 18px; margin-bottom: 30px; }
 .filters button { border: 1px solid var(--line); border-radius: 50px; background: transparent; padding: 9px 17px; font-size: 10px; text-transform: uppercase; letter-spacing: .12em; cursor: pointer; }
 .filters button.active { background: var(--ink); color: #fff; }
-.product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 58px 22px; }
-.product-card { background: var(--paper); }
+.product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 58px 22px; align-items: start; }
+.product-card { background: var(--paper); box-shadow: 0 18px 45px rgba(23,55,43,.04); }
+.product-card:first-child { grid-column: 1 / -1; display: grid; grid-template-columns: 1.3fr .7fr; background: var(--ink); color: #fff; box-shadow: 0 35px 90px rgba(23,55,43,.2); }
+.product-card:first-child .product-image { aspect-ratio: auto; min-height: 650px; }
+.product-card:first-child .product-info { padding: clamp(38px, 6vw, 80px); display: flex; flex-direction: column; justify-content: center; }
+.product-card:first-child .assamese-name { color: var(--lime); }
+.product-card:first-child .product-info h3 { font-size: clamp(44px, 5vw, 72px); line-height: .9; }
+.product-card:first-child .product-note { color: rgba(255,255,255,.72); font-size: 14px; margin-top: 28px; }
+.product-card:first-child .minimum-note { border-color: var(--lime); color: var(--lime); align-self: flex-start; }
+.product-card:first-child .product-buy { margin-top: 55px; border-color: rgba(255,255,255,.25); }
+.product-card:first-child .product-buy button { background: var(--lime); color: var(--ink); }
+.product-card:first-child .product-tag { background: var(--red); color: #fff; }
 .product-image { aspect-ratio: 1.25 / 1; position: relative; overflow: hidden; background: #d8d4c8; }
 .product-image img { height: 100%; object-fit: cover; transition: transform .7s ease; }
 .product-card:hover .product-image img { transform: scale(1.035); }
@@ -78,6 +89,7 @@ nav a:hover::after { width: 100%; }
 .assamese-name { color: var(--red); font-size: 12px; margin: 0; }
 .product-info h3 { font-family: var(--font-display); font-size: 32px; margin: 0; }
 .product-note { min-height: 46px; max-width: 470px; font-size: 13px; line-height: 1.65; color: rgba(23,55,43,.72); }
+.minimum-note { display: inline-block; margin: 3px 0 0; padding: 7px 10px; border: 1px solid var(--red); color: var(--red); font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
 .product-buy { border-top: 1px solid var(--line); margin-top: 22px; padding-top: 18px; display: flex; justify-content: space-between; align-items: center; }
 .product-buy p { margin: 0; }
 .product-buy strong { font-family: var(--font-display); font-size: 26px; }
@@ -200,6 +212,9 @@ footer a:hover { color: #fff; }
   .section-heading h2, .plan-title h2 { font-size: 57px; }
   .plan-title > p:last-child { grid-column: auto; }
   .product-grid { grid-template-columns: 1fr; gap: 28px; }
+  .product-card:first-child { grid-column: auto; display: block; }
+  .product-card:first-child .product-image { min-height: 480px; }
+  .product-card:first-child .product-info { padding: 30px; }
   .product-info > div:first-child { display: block; }
   .product-info h3 { margin-top: 4px; }
   .story { grid-template-columns: 1fr; }

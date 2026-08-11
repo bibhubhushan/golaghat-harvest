@@ -12,6 +12,7 @@ type Product = {
   image: string;
   note: string;
   tag: string;
+  minimum?: string;
 };
 
 const products: Product[] = [
@@ -20,11 +21,56 @@ const products: Product[] = [
     name: "Kaji Nemu Farm Box",
     Assamese: "কাজি নেমু",
     category: "Fresh",
-    price: 299,
-    unit: "2 kg box",
+    price: 1399,
+    unit: "10 kg crate",
     image: "/images/kaji-nemu.jpg",
-    note: "Fragrant, juicy Assam lemons selected for table, beverage and kitchen use.",
-    tag: "Khumtai hero",
+    note: "Fragrant, juicy Assam lemons graded and packed for families, kitchens, shops and hospitality buyers.",
+    tag: "10 kg minimum",
+    minimum: "Minimum order: one 10 kg crate",
+  },
+  {
+    id: "dhekia-xaak",
+    name: "Dhekia Xaak",
+    Assamese: "ঢেকীয়া শাক",
+    category: "Fresh",
+    price: 179,
+    unit: "1 kg harvest pack",
+    image: "/images/dhekia.jpg",
+    note: "Tender seasonal fiddlehead greens, cleaned and bundled for traditional Assamese cooking.",
+    tag: "Seasonal green",
+  },
+  {
+    id: "bhut-jolokia",
+    name: "Bhut Jolokia",
+    Assamese: "ভূত জলকীয়া",
+    category: "Fresh",
+    price: 249,
+    unit: "250 g pack",
+    image: "/images/bhut-jolokia.jpg",
+    note: "A fiercely hot chilli for experienced kitchens, packed in a small, clearly marked batch.",
+    tag: "Handle with care",
+  },
+  {
+    id: "lai-xaak",
+    name: "Lai Xaak",
+    Assamese: "লাই শাক",
+    category: "Fresh",
+    price: 149,
+    unit: "1 kg harvest pack",
+    image: "/images/lai-xaak.jpg",
+    note: "Peppery mustard greens harvested for curries, stir-fries and comforting bowls of rice.",
+    tag: "Field fresh",
+  },
+  {
+    id: "banana-blossom",
+    name: "Kol Dil",
+    Assamese: "কলডিল",
+    category: "Fresh",
+    price: 189,
+    unit: "2 blossom pack",
+    image: "/images/banana-flower.jpg",
+    note: "Fresh banana blossom for fibre-rich Assamese preparations and inventive modern kitchens.",
+    tag: "Village kitchen",
   },
   {
     id: "assam-tea",
@@ -47,6 +93,28 @@ const products: Product[] = [
     image: "/images/honey.jpg",
     note: "Small-batch honey with natural seasonal variation in colour and flavour.",
     tag: "Small batch",
+  },
+  {
+    id: "ginger-turmeric",
+    name: "Ginger + Turmeric Roots",
+    Assamese: "আদা-হালধি",
+    category: "Pantry",
+    price: 399,
+    unit: "2 kg mixed pack",
+    image: "/images/ginger-turmeric.jpg",
+    note: "Earthy, aromatic roots for everyday cooking, pickling, tea blends and food makers.",
+    tag: "Root cellar",
+  },
+  {
+    id: "bamboo-shoot-pickle",
+    name: "Bamboo Shoot Pickle",
+    Assamese: "বাঁহ গাজৰ আচাৰ",
+    category: "Pantry",
+    price: 329,
+    unit: "400 g jar",
+    image: "/images/bamboo-shoot.jpg",
+    note: "A sharp, savoury small-batch pickle inspired by Northeast India's bamboo shoot traditions.",
+    tag: "Fermented flavour",
   },
   {
     id: "handwoven-gamusa",
@@ -124,9 +192,9 @@ export default function Home() {
         <div className="hero-copy">
           <p className="eyebrow">খুমটাইৰ পৰা বিশ্বলৈ · From Khumtai to the world</p>
           <h1>Fresh from<br />Assam.<br /><em>Ready for the world.</em></h1>
-          <p className="hero-text">A direct market for Khumtai&apos;s Kaji Nemu and Assam&apos;s most distinctive produce—built to help local goods travel farther, while more value stays closer to home.</p>
+          <p className="hero-text">A direct market for Khumtai&apos;s Kaji Nemu—available from a 10 kg farm crate—and Assam&apos;s most distinctive goods, built to help local products travel farther.</p>
           <div className="hero-actions">
-            <a className="button primary" href="#shop">Shop the first harvest <span>↗</span></a>
+            <a className="button primary" href="#shop">Enter the Khumtai market <span>↗</span></a>
             <a className="text-link" href="#plan">See how it works <span>↓</span></a>
           </div>
           <div className="hero-proof">
@@ -142,13 +210,13 @@ export default function Home() {
       </section>
 
       <section className="trust-strip" aria-label="Store promises">
-        <span>Source-led</span><i>✦</i><span>Clearly graded</span><i>✦</i><span>Carefully packed</span><i>✦</i><span>Directly connected</span>
+        <span>10 kg lemon minimum</span><i>✦</i><span>Clearly graded</span><i>✦</i><span>Carefully packed</span><i>✦</i><span>Directly connected</span>
       </section>
 
       <section className="shop section" id="shop">
         <div className="section-heading">
-          <div><p className="eyebrow">The first collection</p><h2>Good things<br />from our soil.</h2></div>
-          <p>Four products show the possibility: fresh produce, pantry staples and living craft—presented under one trusted Khumtai origin story.</p>
+          <div><p className="eyebrow">The Khumtai collection · 10 goods</p><h2>A living<br />Assamese market.</h2></div>
+          <p>Fresh greens, powerful chillies, roots, pantry staples and living craft—presented together under one distinctive Khumtai market identity.</p>
         </div>
         <div className="filters" role="group" aria-label="Filter products">
           {categories.map((category) => <button key={category} className={filter === category ? "active" : ""} onClick={() => setFilter(category)}>{category}</button>)}
@@ -159,11 +227,12 @@ export default function Home() {
               <div className="product-image">
                 <img src={product.image} alt={product.name} />
                 <span className="product-tag">{product.tag}</span>
-                <span className="product-index">0{index + 1}</span>
+                <span className="product-index">{String(index + 1).padStart(2, "0")}</span>
               </div>
               <div className="product-info">
                 <div><p className="assamese-name">{product.Assamese}</p><h3>{product.name}</h3></div>
                 <p className="product-note">{product.note}</p>
+                {product.minimum && <p className="minimum-note">{product.minimum}</p>}
                 <div className="product-buy">
                   <p><strong>₹{product.price}</strong><span>{product.unit}</span></p>
                   <button onClick={() => addToCart(product.id)} aria-label={`Add ${product.name} to cart`}>Add <span>+</span></button>
@@ -172,7 +241,7 @@ export default function Home() {
             </article>
           ))}
         </div>
-        <p className="price-note">Indicative pilot prices. Final availability, grade, delivery area and shipping charge will be confirmed before payment.</p>
+        <p className="price-note">Kaji Nemu starts at one 10 kg crate. Prices are indicative; final availability, grade, delivery area and shipping charge will be confirmed before payment.</p>
       </section>
 
       <section className="story" id="story">
@@ -205,7 +274,7 @@ export default function Home() {
           <div className="pilot-lead"><span>90-day launch plan</span><h3>Start narrow.<br />Prove demand.<br />Scale what works.</h3></div>
           <ol>
             <li><span>Weeks 1–3</span><strong>Verify</strong><p>Confirm producer group, product grades, packing method and responsible operator.</p></li>
-            <li><span>Weeks 4–6</span><strong>Launch</strong><p>Open a limited delivery area with Kaji Nemu as the lead product.</p></li>
+            <li><span>Weeks 4–6</span><strong>Launch</strong><p>Open a limited delivery area with the 10 kg Kaji Nemu crate as the lead product.</p></li>
             <li><span>Weeks 7–12</span><strong>Measure</strong><p>Review fulfilment, repeat orders, wastage, buyer feedback and producer economics.</p></li>
           </ol>
         </div>
@@ -222,9 +291,9 @@ export default function Home() {
       </section>
 
       <section className="buyer-banner" id="contact">
-        <p className="eyebrow">For homes · retailers · hotels · institutions</p>
-        <h2>Buying for more than one kitchen?</h2>
-        <p>Tell us what you need. We will use the request to shape the pilot catalogue and delivery model.</p>
+        <p className="eyebrow">For families & groups · retailers · hotels · institutions</p>
+        <h2>Need 10 kg or more?</h2>
+        <p>Start with one lemon crate or tell us your larger weekly requirement. The request helps us plan harvest, packing and delivery.</p>
         <button className="button dark" onClick={() => setCartOpen(true)}>Start a buyer request <span>↗</span></button>
       </section>
 
