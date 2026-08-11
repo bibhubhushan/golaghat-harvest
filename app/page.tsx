@@ -25,8 +25,8 @@ const products: Product[] = [
     price: 1399,
     unit: "10 kg crate",
     image: "images/kaji-nemu.jpg",
-    note: "Bright aroma, generous juice—graded and packed into a 10 kg Assam farm crate.",
-    AssameseNote: "সুগন্ধি আৰু ৰসাল—১০ কিলোগ্ৰামৰ বাছনি কৰা খেতিৰ বাকচ।",
+    note: "Long, aromatic Assam lemons—graded and packed into one 10 kg farm crate.",
+    AssameseNote: "সুগন্ধি, দীঘলীয়া কাজি নেমু—১০ কিলোগ্ৰামৰ বাছনি কৰা খেতিৰ বাকচ।",
     tag: "10 kg minimum",
     minimum: "Minimum order: one 10 kg crate",
   },
@@ -36,7 +36,7 @@ const products: Product[] = [
     Assamese: "ঢেকীয়া শাক",
     category: "Fresh",
     price: 179,
-    unit: "1 kg harvest pack",
+    unit: "500 g harvest pack",
     image: "images/dhekia-fresh-2.jpg",
     note: "Tender fiddlehead greens, gathered at their seasonal best and packed for quick cooking.",
     AssameseNote: "কোমল ঢেকীয়া, ঋতুৰ সৰ্বোত্তম সময়ত সংগ্ৰহ কৰা।",
@@ -48,7 +48,7 @@ const products: Product[] = [
     Assamese: "ভূত জলকীয়া",
     category: "Fresh",
     price: 249,
-    unit: "250 g pack",
+    unit: "100 g pack",
     image: "images/bhut-jolokia.jpg",
     note: "Assam's legendary heat, packed for cooks who know exactly what they are doing.",
     AssameseNote: "অসমৰ বিখ্যাত তীব্ৰ জলকীয়া—সাৱধানে ব্যৱহাৰ কৰক।",
@@ -60,7 +60,7 @@ const products: Product[] = [
     Assamese: "লাই শাক",
     category: "Fresh",
     price: 149,
-    unit: "1 kg harvest pack",
+    unit: "500 g harvest pack",
     image: "images/lai-xaak.jpg",
     note: "Fresh mustard greens with a clean peppery bite—made for simple, comforting food.",
     AssameseNote: "দৈনন্দিন ৰন্ধনৰ বাবে তাজা আৰু কোমল লাই শাক।",
@@ -72,7 +72,7 @@ const products: Product[] = [
     Assamese: "কলডিল",
     category: "Fresh",
     price: 189,
-    unit: "2 blossom pack",
+    unit: "2-blossom pack",
     image: "images/banana-flower.jpg",
     note: "Fresh banana blossom with a tender texture and a deep place in Assamese cooking.",
     AssameseNote: "অসমীয়া ৰান্ধনীঘৰৰ চিনাকি, কোমল আৰু তাজা কলডিল।",
@@ -80,27 +80,27 @@ const products: Product[] = [
   },
   {
     id: "assam-tea",
-    name: "Small Grower Assam Tea",
+    name: "Assam Black Tea",
     Assamese: "অসম চাহ",
     category: "Pantry",
     price: 349,
     unit: "250 g pack",
     image: "images/assam-tea.jpg",
-    note: "Full-bodied Assam tea from small growers, packed close to origin for a brighter cup.",
-    AssameseNote: "সৰু চাহ খেতিয়কৰ পূৰ্ণ-স্বাদযুক্ত অসম চাহ।",
-    tag: "Garden fresh",
+    note: "Full-bodied black tea with the strong, malty character Assam is known for.",
+    AssameseNote: "প্ৰগাঢ় ৰং আৰু পৰিপূৰ্ণ সোৱাদৰ অসম ক’লা চাহ।",
+    tag: "Assam tea",
   },
   {
-    id: "forest-honey",
-    name: "Forest Blossom Honey",
-    Assamese: "বনৰ মৌ",
+    id: "seasonal-honey",
+    name: "Seasonal Blossom Honey",
+    Assamese: "ঋতুৰ ফুলৰ মৌ",
     category: "Pantry",
     price: 449,
     unit: "500 g jar",
     image: "images/honey.jpg",
-    note: "Small-batch blossom honey; colour and flavour shift naturally with the season.",
-    AssameseNote: "ঋতু অনুসৰি ৰং আৰু সোৱাদ সলনি হোৱা সৰু বেচৰ মৌ।",
-    tag: "Small batch",
+    note: "Golden blossom honey; its colour and flavour naturally vary with each season.",
+    AssameseNote: "ঋতু অনুসৰি ৰং আৰু সোৱাদ সলনি হোৱা সুণালী ফুলৰ মৌ।",
+    tag: "Seasonal harvest",
   },
   {
     id: "ginger-turmeric",
@@ -115,16 +115,16 @@ const products: Product[] = [
     tag: "Root cellar",
   },
   {
-    id: "bamboo-shoot-pickle",
-    name: "Bamboo Shoot Pickle",
-    Assamese: "বাঁহ গাজৰ আচাৰ",
-    category: "Pantry",
-    price: 329,
-    unit: "400 g jar",
+    id: "fresh-bamboo-shoot",
+    name: "Fresh Bamboo Shoot",
+    Assamese: "বাঁহৰ গাজ",
+    category: "Fresh",
+    price: 299,
+    unit: "1 kg pack",
     image: "images/bamboo-shoot.jpg",
-    note: "A sharp, savoury bamboo shoot pickle made for rice, meat and everyday meals.",
-    AssameseNote: "ভাত আৰু দৈনন্দিন আহাৰৰ লগত টেঙা-মচলাদাৰ বাঁহ গাজৰ আচাৰ।",
-    tag: "Fermented flavour",
+    note: "Tender bamboo shoot for curries, khorisa, pickles and other regional preparations.",
+    AssameseNote: "তৰকাৰী, খৰিচা আৰু আচাৰৰ বাবে কোমল বাঁহৰ গাজ।",
+    tag: "Seasonal shoot",
   },
   {
     id: "handwoven-gamusa",
@@ -244,7 +244,7 @@ export default function Home() {
         <div className="hero-copy">
           <p className="eyebrow"><span lang="as">অসমৰ সতেজ সোৱাদ</span> · Fresh from Assam</p>
           <h1><span>Fresh from</span><span><em>Assam.</em></span><span>Made with care.</span></h1>
-          <p className="hero-text"><span lang="as">পথাৰৰ শাক-পাচলি, চাহ, আচাৰ আৰু হাতে বনোৱা সামগ্ৰী।</span><br />Fresh food, pantry essentials and living craft—gathered with clear origin and equal respect.</p>
+          <p className="hero-text"><span lang="as">পথাৰৰ শাক-পাচলি, চাহ, মৌ আৰু হাতে বোৱা সামগ্ৰী।</span><br />Fresh food, pantry essentials and living craft—presented with clear origin and equal respect.</p>
           <div className="hero-actions">
             <a className="button primary" href="#shop">Shop now · এতিয়াই কিনক <span>↗</span></a>
             <a className="text-link" href="#story">Meet the makers <span>↓</span></a>
@@ -256,10 +256,10 @@ export default function Home() {
         </div>
         <div className="hero-visual">
           <div className="hero-collage">
-            <figure className="collage-nemu"><img src="images/kaji-nemu.jpg" alt="Fresh Kaji Nemu growing on a branch" /><figcaption>Kaji Nemu</figcaption></figure>
+            <figure className="collage-nemu"><img src="images/kaji-nemu.jpg" alt="An elongated green Kaji Nemu growing on a branch" /><figcaption>Kaji Nemu</figcaption></figure>
             <figure className="collage-dhekia"><img src="images/dhekia-fresh-2.jpg" alt="Fresh Dhekia Xaak" /><figcaption>Dhekia Xaak</figcaption></figure>
             <figure className="collage-chilli"><img src="images/bhut-jolokia.jpg" alt="Fresh Bhut Jolokia chillies" /><figcaption>Bhut Jolokia</figcaption></figure>
-            <figure className="collage-craft"><img src="images/handloom.jpg" alt="Handwoven Assamese textile" /><figcaption>Handwoven craft</figcaption></figure>
+            <figure className="collage-craft"><img src="images/handloom.jpg" alt="A traditional red-and-white Assamese Gamusa" /><figcaption>Handwoven Gamusa</figcaption></figure>
           </div>
           <div className="origin-stamp"><strong>From Assam</strong><span lang="as">অসমৰ পথাৰ আৰু তাঁতশালৰ পৰা</span></div>
         </div>
@@ -349,7 +349,7 @@ export default function Home() {
         <div className="maker-panel" data-reveal>
           <p className="eyebrow"><span lang="as">কৃষক আৰু শিল্পীৰ বাবে</span> · For growers and makers</p>
           <h3>Your work belongs<br />in a wider market.</h3>
-          <p>Fresh produce, tea, honey, pickles, handloom, bamboo, cane, pottery and metal craft can all be presented with the same clarity: who made it, where it came from and what the buyer will receive.</p>
+          <p>Fresh produce, tea, honey, handloom, bamboo, cane, pottery and metal craft can all be presented with the same clarity: who made it, where it came from and what the buyer will receive.</p>
           <a className="button secondary" href="#contact">Connect with the market <span>↗</span></a>
         </div>
       </section>
@@ -375,11 +375,12 @@ export default function Home() {
         <div className="footer-brand"><span className="brand-mark" lang="as">অ</span><h2>Assam Harvest</h2><p lang="as">অসমৰ সোৱাদ, আপোনাৰ দুৱাৰত।</p><p>An ecommerce platform from Assam.</p></div>
         <div><h4>Explore · চাওক</h4><a href="#shop">Shop · বজাৰ</a><a href="#story">Our story · কাহিনী</a><a href="#plan">How it works · প্ৰক্ৰিয়া</a></div>
         <div><h4>Our promise · প্ৰতিশ্ৰুতি</h4><p>Visible origin<br />Clear quality<br />Careful packing<br />Direct connection</p></div>
-        <div><h4>Orders · অৰ্ডাৰ</h4><p>Now taking enquiries<br />Across Assam</p></div>
+        <div><h4>Orders · অৰ্ডাৰ</h4><p>Now taking enquiries<br />Across Assam</p><a href="image-credits.html">Image credits</a></div>
         <p className="copyright">© 2026 Assam Harvest. Prices and availability are confirmed before every order.</p>
       </footer>
 
-      {cartOpen && <div className="drawer-backdrop" onMouseDown={(event) => { if (event.target === event.currentTarget) setCartOpen(false); }}>
+      {cartOpen && <div className="drawer-backdrop">
+        <button className="drawer-dismiss" type="button" aria-label="Close shopping cart" onClick={() => setCartOpen(false)} />
         <aside className="cart-drawer" aria-label="Shopping cart" aria-modal="true" role="dialog">
           <div className="drawer-head"><div><p className="eyebrow"><span lang="as">আপোনাৰ অনুৰোধ</span> · Your request</p><h2>Market basket</h2></div><button onClick={() => setCartOpen(false)} aria-label="Close cart">×</button></div>
           {sent ? <div className="success-message"><span>✓</span><h3>Your request is ready.</h3><p><span lang="as">পেমেণ্টৰ আগতে উপলব্ধতা আৰু ডেলিভাৰী নিশ্চিত কৰা হ’ব।</span><br />The Assam Harvest team will confirm availability and delivery before any payment is taken.</p><button className="button primary" onClick={() => { setSent(false); setCartOpen(false); }}>Continue shopping</button></div> : cartItems.length ? <>

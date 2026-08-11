@@ -36,8 +36,12 @@ test("server-renders the complete Assam Harvest marketplace", async () => {
   assert.match(html, /খাদ্যৰ ভাষা/);
   assert.match(html, /Minimum order: one 10 kg crate/);
   assert.match(html, /Handwoven Gamusa/);
+  assert.match(html, /Long, aromatic Assam lemons/);
+  assert.match(html, /Seasonal Blossom Honey/);
+  assert.match(html, /Fresh Bamboo Shoot/);
+  assert.match(html, /image-credits\.html/);
   assert.equal((html.match(/class="product-card"/g) ?? []).length, 10);
-  assert.doesNotMatch(html, /Khumtai|codex-preview|3D lemon/i);
+  assert.doesNotMatch(html, /Khumtai|codex-preview|3D lemon|Forest Blossom|Small Grower Assam Tea|Bamboo Shoot Pickle/i);
 });
 
 test("includes a GitHub Pages deployment with subpath-safe assets", async () => {
@@ -51,7 +55,7 @@ test("includes a GitHub Pages deployment with subpath-safe assets", async () => 
   assert.match(workflow, /actions\/deploy-pages@v4/);
   assert.match(workflow, /actions\/upload-pages-artifact@v3/);
   assert.match(workflow, /pages: write/);
-  assert.match(exporter, /\/\_next\//);
+  assert.match(exporter, /\/_next\//);
   assert.match(exporter, /\.nojekyll/);
   assert.match(exporter, /name="color-scheme" content="only light"/);
   assert.match(css, /color-scheme: only light/);
