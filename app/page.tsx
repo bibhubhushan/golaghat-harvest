@@ -11,6 +11,7 @@ type Product = {
   unit: string;
   image: string;
   note: string;
+  AssameseNote: string;
   tag: string;
   minimum?: string;
 };
@@ -23,8 +24,9 @@ const products: Product[] = [
     category: "Fresh",
     price: 1399,
     unit: "10 kg crate",
-    image: "/images/kaji-nemu.jpg",
-    note: "Bright aroma, generous juice—graded and packed into a 10 kg Golaghat farm crate.",
+    image: "images/kaji-nemu.jpg",
+    note: "Bright aroma, generous juice—graded and packed into a 10 kg Assam farm crate.",
+    AssameseNote: "সুগন্ধি আৰু ৰসাল—১০ কিলোগ্ৰামৰ বাছনি কৰা খেতিৰ বাকচ।",
     tag: "10 kg minimum",
     minimum: "Minimum order: one 10 kg crate",
   },
@@ -35,8 +37,9 @@ const products: Product[] = [
     category: "Fresh",
     price: 179,
     unit: "1 kg harvest pack",
-    image: "/images/dhekia-fresh-2.jpg",
+    image: "images/dhekia-fresh-2.jpg",
     note: "Tender fiddlehead greens, gathered at their seasonal best and packed for quick cooking.",
+    AssameseNote: "কোমল ঢেকীয়া, ঋতুৰ সৰ্বোত্তম সময়ত সংগ্ৰহ কৰা।",
     tag: "Seasonal green",
   },
   {
@@ -46,8 +49,9 @@ const products: Product[] = [
     category: "Fresh",
     price: 249,
     unit: "250 g pack",
-    image: "/images/bhut-jolokia.jpg",
+    image: "images/bhut-jolokia.jpg",
     note: "Assam's legendary heat, packed for cooks who know exactly what they are doing.",
+    AssameseNote: "অসমৰ বিখ্যাত তীব্ৰ জলকীয়া—সাৱধানে ব্যৱহাৰ কৰক।",
     tag: "Handle with care",
   },
   {
@@ -57,8 +61,9 @@ const products: Product[] = [
     category: "Fresh",
     price: 149,
     unit: "1 kg harvest pack",
-    image: "/images/lai-xaak.jpg",
+    image: "images/lai-xaak.jpg",
     note: "Fresh mustard greens with a clean peppery bite—made for simple, comforting food.",
+    AssameseNote: "দৈনন্দিন ৰন্ধনৰ বাবে তাজা আৰু কোমল লাই শাক।",
     tag: "Field fresh",
   },
   {
@@ -68,8 +73,9 @@ const products: Product[] = [
     category: "Fresh",
     price: 189,
     unit: "2 blossom pack",
-    image: "/images/banana-flower.jpg",
+    image: "images/banana-flower.jpg",
     note: "Fresh banana blossom with a tender texture and a deep place in Assamese cooking.",
+    AssameseNote: "অসমীয়া ৰান্ধনীঘৰৰ চিনাকি, কোমল আৰু তাজা কলডিল।",
     tag: "Village kitchen",
   },
   {
@@ -79,8 +85,9 @@ const products: Product[] = [
     category: "Pantry",
     price: 349,
     unit: "250 g pack",
-    image: "/images/assam-tea.jpg",
+    image: "images/assam-tea.jpg",
     note: "Full-bodied Assam tea from small growers, packed close to origin for a brighter cup.",
+    AssameseNote: "সৰু চাহ খেতিয়কৰ পূৰ্ণ-স্বাদযুক্ত অসম চাহ।",
     tag: "Garden fresh",
   },
   {
@@ -90,8 +97,9 @@ const products: Product[] = [
     category: "Pantry",
     price: 449,
     unit: "500 g jar",
-    image: "/images/honey.jpg",
+    image: "images/honey.jpg",
     note: "Small-batch blossom honey; colour and flavour shift naturally with the season.",
+    AssameseNote: "ঋতু অনুসৰি ৰং আৰু সোৱাদ সলনি হোৱা সৰু বেচৰ মৌ।",
     tag: "Small batch",
   },
   {
@@ -101,8 +109,9 @@ const products: Product[] = [
     category: "Pantry",
     price: 399,
     unit: "2 kg mixed pack",
-    image: "/images/ginger-turmeric.jpg",
+    image: "images/ginger-turmeric.jpg",
     note: "Fresh roots with the colour, aroma and warmth every working kitchen needs.",
+    AssameseNote: "ঘৰুৱা ৰন্ধনৰ বাবে সুগন্ধি তাজা আদা আৰু হালধি।",
     tag: "Root cellar",
   },
   {
@@ -112,8 +121,9 @@ const products: Product[] = [
     category: "Pantry",
     price: 329,
     unit: "400 g jar",
-    image: "/images/bamboo-shoot.jpg",
+    image: "images/bamboo-shoot.jpg",
     note: "A sharp, savoury bamboo shoot pickle made for rice, meat and everyday meals.",
+    AssameseNote: "ভাত আৰু দৈনন্দিন আহাৰৰ লগত টেঙা-মচলাদাৰ বাঁহ গাজৰ আচাৰ।",
     tag: "Fermented flavour",
   },
   {
@@ -123,16 +133,22 @@ const products: Product[] = [
     category: "Craft",
     price: 799,
     unit: "1 piece",
-    image: "/images/handloom.jpg",
+    image: "images/handloom.jpg",
     note: "A handwoven Assamese essential—made to be used, gifted and kept.",
+    AssameseNote: "হাতে বোৱা অসমীয়া গামোচা—ব্যৱহাৰ, উপহাৰ আৰু স্মৃতিৰ বাবে।",
     tag: "Made by hand",
   },
 ];
 
-const categories = ["All", "Fresh", "Pantry", "Craft"] as const;
+const categories = [
+  { value: "All", label: "All", Assamese: "সকলো" },
+  { value: "Fresh", label: "Fresh", Assamese: "তাজা" },
+  { value: "Pantry", label: "Pantry", Assamese: "ভঁৰাল" },
+  { value: "Craft", label: "Craft", Assamese: "শিল্প" },
+] as const;
 
 export default function Home() {
-  const [filter, setFilter] = useState<(typeof categories)[number]>("All");
+  const [filter, setFilter] = useState<(typeof categories)[number]["value"]>("All");
   const [cart, setCart] = useState<Record<string, number>>({});
   const [cartOpen, setCartOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -151,6 +167,7 @@ export default function Home() {
         const distance = document.documentElement.scrollHeight - window.innerHeight;
         const progress = distance > 0 ? (window.scrollY / distance) * 100 : 0;
         document.documentElement.style.setProperty("--scroll-progress", `${progress}%`);
+        document.documentElement.classList.toggle("has-scrolled", window.scrollY > 260);
       });
     };
 
@@ -204,19 +221,19 @@ export default function Home() {
   return (
     <main>
       <div className="scroll-progress" aria-hidden="true" />
-      <div className="announcement">Fresh produce <span>•</span> Assamese pantry <span>•</span> Living craft</div>
+      <div className="announcement"><span lang="as">অসমৰ পথাৰৰ পৰা</span><i>•</i> Fresh produce <i>•</i> Pantry <i>•</i> Craft</div>
 
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="Golaghat Harvest home">
-          <span className="brand-mark">G</span>
-          <span><strong>Golaghat Harvest</strong><small>Golaghat · Assam</small></span>
+        <a className="brand" href="#top" aria-label="Assam Harvest home">
+          <span className="brand-mark" lang="as">অ</span>
+          <span><strong>Assam Harvest</strong><small lang="as">অসমৰ বজাৰ</small></span>
         </a>
         <button className="menu-button" aria-label="Toggle navigation" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? "Close" : "Menu"}</button>
         <nav className={menuOpen ? "nav-open" : ""} aria-label="Main navigation">
-          <a href="#shop" onClick={closeMenu}>Shop</a>
-          <a href="#story" onClick={closeMenu}>Our story</a>
-          <a href="#plan" onClick={closeMenu}>How it works</a>
-          <a href="#contact" onClick={closeMenu}>Contact</a>
+          <a href="#shop" onClick={closeMenu}><span>Shop</span><small lang="as">বজাৰ</small></a>
+          <a href="#story" onClick={closeMenu}><span>Our story</span><small lang="as">আমাৰ কাহিনী</small></a>
+          <a href="#plan" onClick={closeMenu}><span>How it works</span><small lang="as">কেনেকৈ চলে</small></a>
+          <a href="#contact" onClick={closeMenu}><span>Contact</span><small lang="as">যোগাযোগ</small></a>
         </nav>
         <button className={`cart-button ${cartCount ? "has-items" : ""}`} onClick={() => setCartOpen(true)} aria-label={`Open cart with ${cartCount} items`}>
           Cart <span>{String(cartCount).padStart(2, "0")}</span>
@@ -225,45 +242,36 @@ export default function Home() {
 
       <section className="hero" id="top">
         <div className="hero-copy">
-          <p className="eyebrow">গোলাঘাটৰ বজাৰ · Golaghat, Assam</p>
-          <h1><span>The taste of</span><span><em>Golaghat.</em></span><span>All in one place.</span></h1>
-          <p className="hero-text">Fresh vegetables, fragrant roots, bold pantry goods and Assamese craft—thoughtfully gathered for homes, kitchens and retailers.</p>
+          <p className="eyebrow"><span lang="as">অসমৰ সতেজ সোৱাদ</span> · Fresh from Assam</p>
+          <h1><span>Fresh from</span><span><em>Assam.</em></span><span>Made with care.</span></h1>
+          <p className="hero-text"><span lang="as">পথাৰৰ শাক-পাচলি, চাহ, আচাৰ আৰু হাতে বনোৱা সামগ্ৰী।</span><br />Fresh food, pantry essentials and living craft—gathered with clear origin and equal respect.</p>
           <div className="hero-actions">
-            <a className="button primary" href="#shop">Shop the harvest <span>↗</span></a>
-            <a className="text-link" href="#story">Meet the market <span>↓</span></a>
+            <a className="button primary" href="#shop">Shop now · এতিয়াই কিনক <span>↗</span></a>
+            <a className="text-link" href="#story">Meet the makers <span>↓</span></a>
           </div>
           <div className="hero-proof">
             <span className="proof-number">10</span>
-            <span>distinct goods<br />one Assamese market</span>
+            <span>goods to begin<br /><b lang="as">১০ বিধ সামগ্ৰী</b></span>
           </div>
         </div>
         <div className="hero-visual">
           <div className="hero-collage">
-            <figure className="collage-nemu"><img src="/images/kaji-nemu.jpg" alt="Fresh Kaji Nemu growing on a branch" /><figcaption>Kaji Nemu</figcaption></figure>
-            <figure className="collage-dhekia"><img src="/images/dhekia-fresh-2.jpg" alt="Fresh Dhekia Xaak" /><figcaption>Dhekia Xaak</figcaption></figure>
-            <figure className="collage-chilli"><img src="/images/bhut-jolokia.jpg" alt="Fresh Bhut Jolokia chillies" /><figcaption>Bhut Jolokia</figcaption></figure>
-            <figure className="collage-craft"><img src="/images/handloom.jpg" alt="Handwoven Assamese textile" /><figcaption>Handwoven craft</figcaption></figure>
+            <figure className="collage-nemu"><img src="images/kaji-nemu.jpg" alt="Fresh Kaji Nemu growing on a branch" /><figcaption>Kaji Nemu</figcaption></figure>
+            <figure className="collage-dhekia"><img src="images/dhekia-fresh-2.jpg" alt="Fresh Dhekia Xaak" /><figcaption>Dhekia Xaak</figcaption></figure>
+            <figure className="collage-chilli"><img src="images/bhut-jolokia.jpg" alt="Fresh Bhut Jolokia chillies" /><figcaption>Bhut Jolokia</figcaption></figure>
+            <figure className="collage-craft"><img src="images/handloom.jpg" alt="Handwoven Assamese textile" /><figcaption>Handwoven craft</figcaption></figure>
           </div>
-          <div className="origin-stamp"><strong>From Assam</strong><span>Field · Pantry · Craft</span></div>
+          <div className="origin-stamp"><strong>From Assam</strong><span lang="as">অসমৰ পথাৰ আৰু তাঁতশালৰ পৰা</span></div>
         </div>
-      </section>
-
-      <section className="trust-strip" aria-label="Store promises">
-        <span>Fresh vegetables</span><i>✦</i><span>Pantry originals</span><i>✦</i><span>Living craft</span><i>✦</i><span>Visible origin</span>
-      </section>
-
-      <section className="nemu-focus" aria-label="Golaghat Harvest collection highlights" data-reveal>
-        <div className="nemu-intro"><p className="eyebrow">One place · many makers</p><h2>A wider view<br /><em>of Assam.</em></h2></div>
-        <div className="nemu-promise"><p>Golaghat Harvest brings everyday vegetables, distinctive ingredients and meaningful craft into one clear marketplace. Every category matters; every product carries its own place, use and story.</p><div className="nemu-facts"><div data-reveal><span>01</span><strong>Fresh</strong><small>Greens, chillies and roots</small></div><div data-reveal><span>02</span><strong>Pantry</strong><small>Tea, honey and pickles</small></div><div data-reveal><span>03</span><strong>Craft</strong><small>Made by Assamese hands</small></div></div></div>
       </section>
 
       <section className="shop section" id="shop">
         <div className="section-heading" data-reveal>
-          <div><p className="eyebrow">10 goods · one Assamese market</p><h2>From field to home.<br />From Assam to you.</h2></div>
-          <p>Discover fresh greens, Kaji Nemu, bold chillies, fragrant roots, tea, honey, pickles and living craft—each presented with equal care.</p>
+          <div><p className="eyebrow"><span lang="as">এতিয়াই বজাৰ কৰক</span> · Ready to order</p><h2>Shop Assam.<br /><em lang="as">অসমৰ বজাৰ।</em></h2></div>
+          <p>See the food first. Compare the pack, price and minimum order clearly. Every request is confirmed for freshness, availability and delivery before payment.</p>
         </div>
         <div className="filters" role="group" aria-label="Filter products">
-          {categories.map((category) => <button key={category} className={filter === category ? "active" : ""} onClick={() => setFilter(category)}>{category}</button>)}
+          {categories.map((category) => <button key={category.value} data-category={category.value} className={filter === category.value ? "active" : ""} onClick={() => setFilter(category.value)}><span>{category.label}</span><small lang="as">{category.Assamese}</small></button>)}
         </div>
         <div className="product-grid" key={filter}>
           {visibleProducts.map((product, index) => (
@@ -274,92 +282,114 @@ export default function Home() {
                 <span className="product-index">{String(index + 1).padStart(2, "0")}</span>
               </div>
               <div className="product-info">
-                <div><p className="assamese-name">{product.Assamese}</p><h3>{product.name}</h3></div>
-                <p className="product-note">{product.note}</p>
+                <div><p className="assamese-name" lang="as">{product.Assamese}</p><h3>{product.name}</h3></div>
+                <p className="product-note"><span>{product.note}</span><small lang="as">{product.AssameseNote}</small></p>
                 {product.minimum && <p className="minimum-note">{product.minimum}</p>}
                 <div className="product-buy">
                   <p><strong>₹{product.price}</strong><span>{product.unit}</span></p>
-                  <button onClick={() => addToCart(product.id)} aria-label={`Add ${product.name} to cart`}>Add <span>+</span></button>
+                  <button onClick={() => addToCart(product.id)} aria-label={`Add ${product.name} to cart`}>Add · যোগ <span>+</span></button>
                 </div>
               </div>
             </article>
           ))}
         </div>
-        <p className="price-note">Kaji Nemu starts at one 10 kg crate. Prices are indicative; final availability, grade, delivery area and shipping charge will be confirmed before payment.</p>
+        <p className="price-note"><strong lang="as">মন কৰিব:</strong> Kaji Nemu starts at one 10 kg crate. Prices are indicative; final availability, grade, delivery area and shipping charge will be confirmed before payment.</p>
+      </section>
+
+      <section className="trust-strip" aria-label="Store promises">
+        <span><b lang="as">তাজা</b> Fresh</span><i>✦</i><span><b lang="as">বিশ্বাস</b> Clear origin</span><i>✦</i><span><b lang="as">যত্ন</b> Careful packing</span><i>✦</i><span><b lang="as">হাতে বনোৱা</b> Handmade</span>
+      </section>
+
+      <section className="nemu-focus" aria-label="Assam Harvest collection highlights" data-reveal>
+        <div className="nemu-intro"><p className="eyebrow"><span lang="as">অসমৰ মানুহ · অসমৰ কাম</span></p><h2>Food. Craft.<br /><em>People.</em></h2></div>
+        <div className="nemu-promise"><p><span lang="as">এই বজাৰখন কেৱল সামগ্ৰীৰ তালিকা নহয়—ই কৃষক, খাদ্য প্ৰস্তুতকাৰী আৰু শিল্পীৰ কামৰ বাবে এটা স্পষ্ট, সন্মানজনক পথ।</span><br />Assam Harvest gives growers, food makers and craftspeople one carefully presented marketplace. Origin is visible, categories are equal and every order begins with trust.</p><div className="nemu-facts"><div data-reveal><span>01</span><strong>Grow</strong><small lang="as">কৃষক · শাক-পাচলি আৰু শস্য</small></div><div data-reveal><span>02</span><strong>Make</strong><small lang="as">খাদ্য · চাহ, মৌ আৰু আচাৰ</small></div><div data-reveal><span>03</span><strong>Craft</strong><small lang="as">শিল্পী · তাঁত, বাঁহ আৰু ধাতু</small></div></div></div>
       </section>
 
       <section className="story" id="story" data-reveal>
-        <div className="story-image"><img src="/images/assam-tea.jpg" alt="Hands plucking fresh green tea leaves" /><span>Strong produce. Clear origin. Better reach.</span></div>
+        <div className="story-image"><img src="images/assam-tea.jpg" alt="Hands plucking fresh green tea leaves" /><span><b lang="as">মানুহৰ হাতৰ মূল্য</b> · Value the work</span></div>
         <div className="story-copy">
-          <p className="eyebrow light">Why Golaghat Harvest</p>
-          <h2>Great produce deserves<br /><em>a better route.</em></h2>
-          <p>Growers already know how to raise remarkable produce. Golaghat Harvest adds what buyers need: clear standards, confident presentation and dependable fulfilment.</p>
-          <blockquote>“See where it comes from. Know what you are buying. Order with confidence.”</blockquote>
-          <a href="#plan" className="button lime">Follow the journey <span>↘</span></a>
+          <p className="eyebrow light"><span lang="as">সামগ্ৰীৰ আঁৰৰ মানুহ</span> · The people behind it</p>
+          <h2>Value the work.<br /><em>Not only the thing.</em></h2>
+          <p><span lang="as">ভাল শস্য আৰু দক্ষ হাতে বনোৱা সামগ্ৰীৰ মূল্য তাৰ উৎস, যত্ন আৰু মানুহৰ কাহিনীত থাকে।</span><br />Good produce and meaningful craft carry the labour, skill and place behind them. Clear presentation helps buyers understand that value—and helps more of it travel back to the people who created it.</p>
+          <blockquote>“Know the product. See its origin. Respect the work.”</blockquote>
+          <a href="#plan" className="button secondary">See how it works <span>↓</span></a>
+        </div>
+      </section>
+
+      <section className="culture section" aria-labelledby="culture-title">
+        <div className="culture-heading" data-reveal>
+          <p className="eyebrow"><span lang="as">খাদ্যৰ ভাষা</span> · The language of food</p>
+          <h2 id="culture-title">A market shaped<br />by how Assam eats.</h2>
+          <p>Assamese food draws meaning from seasonal greens, bright sourness, fermented ingredients and careful use of the whole plant. The catalogue starts with those living food traditions.</p>
+        </div>
+        <div className="culture-grid">
+          {[
+            ["images/dhekia-fresh-2.jpg", "Xaak", "শাক", "Seasonal greens are everyday food, not decoration. Dhekia and Lai bring the landscape directly to the kitchen."],
+            ["images/kaji-nemu.jpg", "Tenga", "টেঙা", "Kaji Nemu brings a clean, aromatic sourness that brightens dal, fish, greens and simple meals."],
+            ["images/bamboo-shoot.jpg", "Khorisa", "খৰিচা", "Bamboo shoot may be used fresh, fermented or pickled—an ingredient with a deep place in regional food memory."],
+            ["images/handloom.jpg", "Handmade", "হাতে বনোৱা", "Food and craft belong together: the same market can value a harvest, a woven textile and the hands behind both."],
+          ].map(([image, title, Assamese, copy], index) => <article className="culture-card" key={title} data-reveal><img src={image} alt="" /><div><span>0{index + 1}</span><p lang="as">{Assamese}</p><h3>{title}</h3><small>{copy}</small></div></article>)}
         </div>
       </section>
 
       <section className="plan section" id="plan">
         <div className="plan-title" data-reveal>
-          <p className="eyebrow">From harvest to doorstep</p>
-          <h2>A simple route<br />to a wider market.</h2>
-          <p>Start with real supply and real orders. Build trust through consistent grading, thoughtful packing and dependable delivery.</p>
+          <p className="eyebrow"><span lang="as">পথাৰৰ পৰা দুৱাৰলৈ</span> · From source to doorstep</p>
+          <h2>A shorter path<br />to the buyer.</h2>
+          <p>Keep the system understandable: show what is ready, confirm the real order, pack with care and deliver with clear communication.</p>
         </div>
         <div className="system-flow">
           {[
-            ["01", "Source", "Work with growers and map what is ready, when."],
-            ["02", "Grade", "Make size, freshness and quality easy to understand."],
-            ["03", "Pack", "Protect the produce and make Golaghat recognisable."],
-            ["04", "Deliver", "Serve homes, kitchens, retailers and bulk buyers."],
-            ["05", "Improve", "Learn from repeat orders and producer feedback."],
-          ].map(([number, title, copy]) => <div className="flow-step" key={number} data-reveal><span>{number}</span><h3>{title}</h3><p>{copy}</p></div>)}
+            ["01", "Share", "দেখুৱাওক", "Growers and makers show the real product, pack and available quantity."],
+            ["02", "Confirm", "নিশ্চিত কৰক", "The buyer receives a clear confirmation before any payment is taken."],
+            ["03", "Pack", "যতনে পেক কৰক", "Fresh goods are graded; craft is protected; every order is handled with care."],
+            ["04", "Deliver", "পঠিয়াই দিয়ক", "Homes, kitchens and retailers receive updates through the final handoff."],
+          ].map(([number, title, Assamese, copy]) => <div className="flow-step" key={number} data-reveal><span>{number}</span><small lang="as">{Assamese}</small><h3>{title}</h3><p>{copy}</p></div>)}
         </div>
-        <div className="pilot-plan">
-          <div className="pilot-lead"><span>The first 90 days</span><h3>Start focused.<br />Earn trust.<br />Grow with demand.</h3></div>
-          <ol>
-            <li><span>Weeks 1–3</span><strong>Prepare</strong><p>Confirm growers, product grades, packing and the team responsible for each order.</p></li>
-            <li><span>Weeks 4–6</span><strong>Launch</strong><p>Begin with a limited delivery area and the 10 kg Kaji Nemu crate.</p></li>
-            <li><span>Weeks 7–12</span><strong>Improve</strong><p>Review delivery, repeat orders, avoidable loss and buyer feedback.</p></li>
-          </ol>
+        <div className="maker-panel" data-reveal>
+          <p className="eyebrow"><span lang="as">কৃষক আৰু শিল্পীৰ বাবে</span> · For growers and makers</p>
+          <h3>Your work belongs<br />in a wider market.</h3>
+          <p>Fresh produce, tea, honey, pickles, handloom, bamboo, cane, pottery and metal craft can all be presented with the same clarity: who made it, where it came from and what the buyer will receive.</p>
+          <a className="button secondary" href="#contact">Connect with the market <span>↗</span></a>
         </div>
       </section>
 
       <section className="outcomes" data-reveal>
-        <div className="outcomes-copy"><p className="eyebrow light">What good looks like</p><h2>More reach.<br />Less waste.<br />Clear value.</h2><p>Judge the market by what can be seen and measured: better buying, better fulfilment and stronger repeat demand.</p></div>
+        <div className="outcomes-copy"><p className="eyebrow light"><span lang="as">ভাল বজাৰৰ নীতি</span> · Principles of a good market</p><h2>Clear.<br />Fair.<br />Human.</h2><p>The design stays quiet so the food, the craft and the people remain visible.</p></div>
         <div className="outcome-grid">
-          <div><span>01</span><h3>Visible origin</h3><p>Make the grower and place part of the product story.</p></div>
-          <div><span>02</span><h3>Smarter demand</h3><p>Match harvest windows with orders and clearer buying signals.</p></div>
-          <div><span>03</span><h3>Buyer confidence</h3><p>Earn repeat orders through consistent quality and communication.</p></div>
-          <div><span>04</span><h3>Local capability</h3><p>Build practical skills in grading, packing, cataloguing and delivery.</p></div>
+          <div><span>01</span><small lang="as">উৎস দেখা যায়</small><h3>Visible origin</h3><p>The place and maker stay attached to the product story.</p></div>
+          <div><span>02</span><small lang="as">স্পষ্ট তথ্য</small><h3>Clear buying</h3><p>Pack, price, minimum quantity and next step are easy to scan.</p></div>
+          <div><span>03</span><small lang="as">সমান সন্মান</small><h3>Equal respect</h3><p>Vegetables, pantry goods and craft receive the same visual care.</p></div>
+          <div><span>04</span><small lang="as">মানুহৰ সংযোগ</small><h3>Human contact</h3><p>Every order is confirmed by a real person before payment.</p></div>
         </div>
       </section>
 
       <section className="buyer-banner" id="contact" data-reveal>
-        <p className="eyebrow">For homes · retailers · restaurants · hospitality</p>
-        <h2>Buying for home or business?</h2>
-        <p>Choose one product or tell us your weekly requirement. We will confirm freshness, availability and delivery before payment.</p>
-        <button className="button dark" onClick={() => setCartOpen(true)}>Start an order <span>↗</span></button>
+        <p className="eyebrow"><span lang="as">ঘৰ · দোকান · ৰেষ্টুৰেণ্ট</span> · Home or business</p>
+        <h2>Bring Assam<br />to your table.</h2>
+        <p><span lang="as">এটা সামগ্ৰী বাছক বা আপোনাৰ নিয়মীয়া প্ৰয়োজন জনাওক।</span><br />Choose one product or tell us your weekly requirement. We will confirm freshness, availability and delivery before payment.</p>
+        <button className="button primary" onClick={() => setCartOpen(true)}>Start an order · অৰ্ডাৰ কৰক <span>↗</span></button>
       </section>
 
       <footer>
-        <div className="footer-brand"><span className="brand-mark">G</span><h2>Golaghat Harvest</h2><p>অসমৰ সোৱাদ, আপোনাৰ দুৱাৰত।<br />An ecommerce platform from Golaghat.</p></div>
-        <div><h4>Explore</h4><a href="#shop">Shop</a><a href="#story">Our story</a><a href="#plan">How it works</a></div>
-        <div><h4>Our promise</h4><p>Visible origin<br />Clear quality<br />Careful packing<br />Direct connection</p></div>
-        <div><h4>Orders</h4><p>Now taking enquiries<br />Golaghat · Assam</p></div>
-        <p className="copyright">© 2026 Golaghat Harvest. Prices and availability are confirmed before every order.</p>
+        <div className="footer-brand"><span className="brand-mark" lang="as">অ</span><h2>Assam Harvest</h2><p lang="as">অসমৰ সোৱাদ, আপোনাৰ দুৱাৰত।</p><p>An ecommerce platform from Assam.</p></div>
+        <div><h4>Explore · চাওক</h4><a href="#shop">Shop · বজাৰ</a><a href="#story">Our story · কাহিনী</a><a href="#plan">How it works · প্ৰক্ৰিয়া</a></div>
+        <div><h4>Our promise · প্ৰতিশ্ৰুতি</h4><p>Visible origin<br />Clear quality<br />Careful packing<br />Direct connection</p></div>
+        <div><h4>Orders · অৰ্ডাৰ</h4><p>Now taking enquiries<br />Across Assam</p></div>
+        <p className="copyright">© 2026 Assam Harvest. Prices and availability are confirmed before every order.</p>
       </footer>
 
       {cartOpen && <div className="drawer-backdrop" onMouseDown={(event) => { if (event.target === event.currentTarget) setCartOpen(false); }}>
         <aside className="cart-drawer" aria-label="Shopping cart" aria-modal="true" role="dialog">
-          <div className="drawer-head"><div><p className="eyebrow">Your request</p><h2>Market basket</h2></div><button onClick={() => setCartOpen(false)} aria-label="Close cart">×</button></div>
-          {sent ? <div className="success-message"><span>✓</span><h3>Your request is ready.</h3><p>The Golaghat Harvest team will confirm availability and delivery before any payment is taken.</p><button className="button primary" onClick={() => { setSent(false); setCartOpen(false); }}>Continue shopping</button></div> : cartItems.length ? <>
+          <div className="drawer-head"><div><p className="eyebrow"><span lang="as">আপোনাৰ অনুৰোধ</span> · Your request</p><h2>Market basket</h2></div><button onClick={() => setCartOpen(false)} aria-label="Close cart">×</button></div>
+          {sent ? <div className="success-message"><span>✓</span><h3>Your request is ready.</h3><p><span lang="as">পেমেণ্টৰ আগতে উপলব্ধতা আৰু ডেলিভাৰী নিশ্চিত কৰা হ’ব।</span><br />The Assam Harvest team will confirm availability and delivery before any payment is taken.</p><button className="button primary" onClick={() => { setSent(false); setCartOpen(false); }}>Continue shopping</button></div> : cartItems.length ? <>
             <div className="cart-items">{cartItems.map((item) => <div className="cart-item" key={item.id}><img src={item.image} alt="" /><div><strong>{item.name}</strong><span>₹{item.price} · {item.unit}</span><div className="quantity"><button onClick={() => changeQuantity(item.id, -1)} aria-label={`Remove one ${item.name}`}>−</button><b>{item.quantity}</b><button onClick={() => changeQuantity(item.id, 1)} aria-label={`Add one ${item.name}`}>+</button></div></div><strong>₹{item.price * item.quantity}</strong></div>)}</div>
             <div className="subtotal"><span>Indicative subtotal</span><strong>₹{subtotal}</strong></div>
-            <form onSubmit={submitOrder} className="order-form"><label>Name<input required name="name" placeholder="Your name" /></label><label>Phone<input required name="phone" type="tel" placeholder="10-digit mobile number" pattern="[0-9 +()-]{10,}" /></label><label>Delivery location<input required name="location" placeholder="Town / city / PIN" /></label><button className="button primary" type="submit">Confirm my request <span>↗</span></button><small>We will confirm availability, delivery and payment details by phone.</small></form>
+            <form onSubmit={submitOrder} className="order-form"><label>Name · নাম<input required name="name" placeholder="Your name" /></label><label>Phone · ফোন<input required name="phone" type="tel" placeholder="10-digit mobile number" pattern="[0-9 +()-]{10,}" /></label><label>Delivery location · ঠিকনা<input required name="location" placeholder="Town / city / PIN" /></label><button className="button primary" type="submit">Confirm request · নিশ্চিত কৰক <span>↗</span></button><small>We will confirm availability, delivery and payment details by phone.</small></form>
           </> : <div className="empty-cart"><span>○</span><h3>Your basket is ready for something good.</h3><p>Start with a 10 kg Kaji Nemu crate or explore the Assamese collection.</p><button className="button primary" onClick={() => { setCartOpen(false); document.getElementById("shop")?.scrollIntoView({ behavior: "smooth" }); }}>Explore the collection</button></div>}
         </aside>
       </div>}
-      {!cartOpen && <div className="mobile-order-bar"><div><small>Golaghat Harvest</small><strong>10 Assamese goods</strong></div><button onClick={() => document.getElementById("shop")?.scrollIntoView({ behavior: "smooth" })}>Shop now <span>↗</span></button></div>}
+      {!cartOpen && <div className="mobile-order-bar"><div><small lang="as">অসমৰ বজাৰ · Assam Harvest</small><strong>Shop 10 goods</strong></div><button onClick={() => document.getElementById("shop")?.scrollIntoView({ behavior: "smooth" })}>Shop · কিনক <span>↗</span></button></div>}
     </main>
   );
 }
